@@ -10,6 +10,8 @@ export default function Hero() {
 
       <div className="absolute top-5 left-10 w-70 h-70 bg-teal-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
 
+      <div className="absolute top-5 right-10 w-80 h-80 hidden md:flex bg-teal-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+
       <div className="relative max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-30 items-center">
         {/* LEFT CONTENT */}
         <div>
@@ -57,7 +59,7 @@ export default function Hero() {
         <div className="relative flex justify-center">
           <div className="relative">
             <div className="absolute -inset-8 bg-emerald-200/40 rounded-4xl blur-2xl" />
-            <div className=" absolute bg-[#B2E8E0] p-5 rounded-3xl shadow-xl w-150 h-150  -left-5 -top-5 rotate-6"></div>
+            <div className=" absolute bg-[#B2E8E0] p-5 rounded-3xl shadow-xl w-115 h-115 md:w-150 md:h-150  -left-5 -top-5 rotate-6"></div>
             <div className="relative bg-white p-4 rounded-3xl shadow-xl">
               <Image
                 src={heroImg}

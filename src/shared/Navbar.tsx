@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import { Search, Bell, ChevronDown, Menu } from "lucide-react";
 import logo from "../assests/logo.avif";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [search, setSearch] = useState("Wellness Pro");
+
   return (
     <div className="relative">
       <div className="absolute -top-3.5 inset-0 bg-[linear-gradient(to_right,#e5f3f0_1px,transparent_1px),linear-gradient(to_bottom,#e5f3f0_1px,transparent_1px)] bg-size-[40px_40px] -z-10" />
@@ -18,15 +23,21 @@ export default function Navbar() {
             <div className="flex-1 max-w-2xl">
               <div className=" items-center hidden md:flex bg-gray-100 rounded-full px-4 py-2 gap-2">
                 <Menu className="w-5 h-5 text-gray-600" />
-                <select className="bg-transparent outline-none text-sm text-gray-600">
+                <select
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="bg-transparent outline-none text-sm text-gray-600"
+                >
                   <option>Wellness Pro</option>
+                  <option>Doctor Pro</option>
+                  <option>Self Pro</option>
                 </select>
 
                 <span className="text-gray-300">|</span>
 
                 <input
                   type="text"
-                  placeholder="Search Pro Name"
+                  placeholder={`Search Pro ${search}`}
                   className="flex-1 bg-transparent outline-none text-sm"
                 />
 
