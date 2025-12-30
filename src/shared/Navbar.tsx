@@ -6,7 +6,9 @@ import logo from "../assests/logo.avif";
 import { useState } from "react";
 
 export default function Navbar() {
-  const [search, setSearch] = useState("Wellness Pro");
+  type ProCateogry = "Wellness Pro" | "Doctor Pro" | "Self Pro";
+
+  const [search, setSearch] = useState<ProCateogry>("Wellness Pro");
 
   return (
     <div className="relative">
@@ -25,7 +27,7 @@ export default function Navbar() {
                 <Menu className="w-5 h-5 text-gray-600" />
                 <select
                   value={search}
-                  onChange={(e) => setSearch(e.target.value)}
+                  onChange={(e) => setSearch(e.target.value as ProCateogry)}
                   className="bg-transparent outline-none text-sm text-gray-600"
                 >
                   <option>Wellness Pro</option>
