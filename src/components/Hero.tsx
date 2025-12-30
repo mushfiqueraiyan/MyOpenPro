@@ -8,10 +8,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import heroImg from "../assests/herodoctor.avif";
+import heroImg2 from "../assests/image.avif";
 
 export default function Hero() {
   return (
-    <section className="relative h-200">
+    <section className="relative h-300 md:h-200 overflow-hidden">
       {/* Grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5f3f0_1px,transparent_1px),linear-gradient(to_bottom,#e5f3f0_1px,transparent_1px)] bg-size-[40px_40px]" />
 
@@ -30,12 +31,12 @@ export default function Hero() {
           clickable: true,
           renderBullet: (index, className) => {
             // custom pagination bullet
-            return `<span class="${className} custom-bullet"></span>`;
+            return `<span class="${className} custom-bullet "></span>`;
           },
         }}
       >
-        <SwiperSlide>
-          <div className="relative max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-30 items-center">
+        <SwiperSlide className="pt-10">
+          <div className="relative max-w-7xl mx-auto px-6 pt-10 pb-30 grid grid-cols-1 lg:grid-cols-2 gap-30 items-center">
             {/* LEFT CONTENT */}
             <div>
               <div className="inline-flex border border-[#0d948944] items-center gap-2 bg-[#DFFCF6] text-emerald-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -97,8 +98,9 @@ export default function Hero() {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-30 items-center">
+        {/* Slider 02 */}
+        <SwiperSlide className="pt-10">
+          <div className="relative max-w-7xl mx-auto px-6 pt-10 pb-30 grid grid-cols-1 lg:grid-cols-2 gap-30 items-center">
             {/* LEFT CONTENT */}
             <div>
               <div className="inline-flex border border-[#0d948944] items-center gap-2 bg-[#DFFCF6] text-emerald-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -108,14 +110,17 @@ export default function Hero() {
 
               {/* Heading */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
-                Your Wellness <br />
-                Journey <span className="text-[#15897E]">Starts Here</span>
+                Grow Your Business
+                <br />
+                <span className="text-[#15897E]">With Us</span>
               </h1>
 
               {/* Description */}
               <p className="mt-6 text-slate-600 max-w-xl text-lg">
-                Connect with top professionals, book appointments instantly, and
-                take charge of your personal care journey.
+                Join our platform to grow your business effortlessly. Reach more
+                clients, streamline bookings and payments, and unlock exclusive
+                member benefits — so you can focus on delivering exceptional
+                service.
               </p>
 
               {/* CTA */}
@@ -145,10 +150,10 @@ export default function Hero() {
             <div className="relative flex justify-center">
               <div className="relative">
                 <div className="absolute -inset-8 bg-emerald-200/40 rounded-4xl blur-2xl" />
-                <div className=" absolute bg-[#B2E8E0] p-5 rounded-3xl shadow-xl w-115 h-115 md:w-150 md:h-150  -left-5 -top-5 rotate-6"></div>
+                <div className=" absolute bg-[#B2E8E0] p-5 rounded-3xl shadow-xl w-132 h-120 md:w-132 md:h-120  left-6 -top-5 rotate-6"></div>
                 <div className="relative bg-white p-4 rounded-3xl shadow-xl">
                   <Image
-                    src={heroImg}
+                    src={heroImg2}
                     alt="Medical professionals"
                     width={520}
                     height={520}
