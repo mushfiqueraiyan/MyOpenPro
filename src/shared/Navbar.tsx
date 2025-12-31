@@ -18,7 +18,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 gap-4">
             {/* Left: Logo */}
             <div className="flex items-center gap-2">
-              <Image src={logo} alt="Open My Pro" />
+              <Image width={50} height={50} src={logo} alt="Open My Pro" />
             </div>
 
             {/* Center: Search */}

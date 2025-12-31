@@ -57,7 +57,7 @@ const featuredItems = [
 
 export default function FeaturedSection() {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white pt-5 pb-10">
       <div className="mx-auto max-w-7xl px-4">
         {/* Header */}
         <div className="text-center">

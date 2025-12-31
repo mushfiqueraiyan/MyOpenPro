@@ -109,12 +109,12 @@ export default function ElitePros() {
         </div>
         {/* Slider */}
         <div className="relative mt-10 max-w-350 mx-auto">
-          <div className="absolute top-1/2 -left-10 md:-left-16 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-[#15897E] text-white p-2 shadow-lg swiper-button-prev">
+          <div className="absolute top-1/2 -left-10 md:-left-16 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-[#15897E] text-transparent!  p-2 shadow-lg swiper-button-prev">
             <ChevronLeft color="white" size={24} />
           </div>
 
           {/* Right Arrow */}
-          <div className="absolute top-1/2 -right-10 md:-right-16 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-[#15897E] text-white p-2 shadow-lg swiper-button-next">
+          <div className="absolute top-1/2  -right-10 md:-right-16 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-[#15897E] text-transparent! p-2 shadow-lg swiper-button-next">
             <ChevronRight color="white" size={24} />
           </div>
 
