@@ -7,8 +7,8 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import heroImg from "../assests/herodoctor.avif";
-import heroImg2 from "../assests/image.avif";
+import heroImg from "../assests/herodoctor.webp";
+import heroImg2 from "../assests/heroType.webp";
 
 export default function Hero() {
   return (

@@ -162,9 +162,13 @@ export default function ElitePros() {
                           <span className="text-white">({pro.reviews})</span>
                         </div>
                       </div>
-                      <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-600 to-teal-500 px-4 py-2 text-sm font-semibold text-white hover:opacity-90">
+                      <button className="relative group mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-600 to-teal-500 px-4 py-2 text-sm font-semibold text-white hover:opacity-90">
                         <Calendar className="h-4 w-4" />
                         Instant Book
+                        <span
+                          className=" absolute -bottom-1 left-0 h-1.5 w-full bg-linear-to-r from-cyan-400 to-blue-600 blur-[1px]
+      shadow-[0_0_12px_rgba(56,189,248,0.9)] scale-x-0 group-hover:scale-x-88 origin-center transition-transform duration-300 ease-in-out"
+                        />
                       </button>
                     </div>
                   </div>
