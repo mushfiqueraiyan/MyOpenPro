@@ -38,7 +38,7 @@ export default function Speciality() {
         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-6">
           {/*  Bone */}
           <div className="md:col-span-2">
-            <div className="flex h-full flex-col rounded-xl bg-white p-6 shadow-lg transition hover:shadow-md">
+            <div className="flex h-full flex-col rounded-xl bg-white hover:bg-[#FEECE5] transform duration-300 ease-in-out hover:scale-105 p-6 shadow-lg transition hover:shadow-md">
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500 text-xl text-white">
                 <Bone />
               </div>
@@ -56,7 +56,7 @@ export default function Speciality() {
 
           {/* Oral */}
           <div className="md:col-span-2">
-            <div className="flex h-full flex-col rounded-xl bg-white p-6 shadow-lg transition hover:shadow-md">
+            <div className="flex h-full flex-col rounded-xl bg-white hover:bg-[#EAF0FE] transform duration-300 ease-in-out hover:scale-105 p-6 shadow-lg transition hover:shadow-md">
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-xl text-white">
                 <Smile />
               </div>
@@ -74,7 +74,7 @@ export default function Speciality() {
 
           {/* Skin */}
           <div className="md:col-span-2">
-            <div className="flex h-full flex-col rounded-xl bg-white p-6 shadow-lg transition hover:shadow-md">
+            <div className="flex h-full flex-col rounded-xl bg-white hover:bg-[#FEECF1] transform duration-300 ease-in-out hover:scale-105 p-6 shadow-lg transition hover:shadow-md">
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-pink-500 text-xl text-white">
                 <Shield />
               </div>
@@ -92,7 +92,7 @@ export default function Speciality() {
 
           {/* Natural (Tall) */}
           <div className="md:col-span-2 md:row-span-2">
-            <div className="flex h-full flex-col rounded-xl bg-white p-6 shadow-lg transition hover:shadow-md">
+            <div className="flex h-full flex-col rounded-xl bg-white hover:bg-[#E3F9EE] transform duration-300 ease-in-out hover:scale-105 p-6 shadow-lg transition hover:shadow-md">
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500 text-xl text-white">
                 <HeartPulse />
               </div>
@@ -128,7 +128,7 @@ export default function Speciality() {
 
           {/* Mental Health */}
           <div className="md:col-span-2">
-            <div className="flex h-full flex-col rounded-xl bg-white p-6 shadow-lg transition hover:shadow-md">
+            <div className="flex h-full flex-col rounded-xl hover:bg-[#FFF8DE] transform duration-300 ease-in-out hover:scale-105 bg-white p-6 shadow-lg transition hover:shadow-md">
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-yellow-500 text-xl text-white">
                 <Brain />
               </div>

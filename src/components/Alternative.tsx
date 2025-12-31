@@ -84,20 +84,20 @@ const Alternative = () => {
       <div className="h-1 w-35 bg-linear-to-r from-[#0E968A] via-[#37D0BC] to-[#17BAA7] mx-auto my-3" />
 
       <div className="relative mt-10 max-w-350 mx-auto">
-        <div className="absolute top-1/2 -left-10 md:-left-16 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-white text-transparent!  p-2 shadow-xl swiper-button-prev">
+        <div className="absolute top-1/2 -left-10 md:-left-16 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-white text-transparent!  p-2 shadow-xl swiper-button-prevv2">
           <ChevronLeft color="black" size={24} />
         </div>
 
         {/* Right Arrow */}
-        <div className="absolute top-1/2  -right-10 md:-right-16 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-white  text-transparent! p-2 shadow-xl swiper-button-next">
+        <div className="absolute top-1/2  -right-10 md:-right-16 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-white  text-transparent! p-2 shadow-xl swiper-button-nextt2">
           <ChevronRight color="black" size={24} />
         </div>
 
         <Swiper
           modules={[Navigation, Autoplay]}
           navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-nextt2",
+            prevEl: ".swiper-button-prevv2",
           }}
           spaceBetween={20}
           loop={true}
