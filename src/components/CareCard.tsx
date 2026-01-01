@@ -1,7 +1,9 @@
-import React from "react";
+"use client";
 import { ArrowRight } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/navigation";
 type CareProp = {
+  id: number;
   title: string;
   rating: number;
   reviews: number;
@@ -11,6 +13,7 @@ type CareProp = {
 };
 
 const CareCard = ({
+  id,
   title,
   rating,
   reviews,
@@ -18,9 +21,14 @@ const CareCard = ({
   status,
   image,
 }: CareProp) => {
+  const router = useRouter();
+
   return (
     <div>
-      <div className="rounded-xl border-t-3 border-[#2ad4ce] bg-[#f2fef836] p-4 shadow-md transition hover:shadow-md">
+      <div
+        onClick={() => router.push(`/featured/${id}`)}
+        className="rounded-xl border-t-3 border-[#2ad4ce] bg-[#f2fef836] p-4 shadow-md transition hover:shadow-md"
+      >
         <div className="flex items-center gap-3">
           {/* Image */}
           <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-emerald-50">

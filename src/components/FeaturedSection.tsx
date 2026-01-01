@@ -1,58 +1,11 @@
 import { Sparkle, Sparkles } from "lucide-react";
-import feature1 from "../assests/feature1.webp";
-import feature2 from "../assests/feature2.webp";
-import feature3 from "../assests/feature3.webp";
-import feature4 from "../assests/feature4.webp";
 import FeaturedCard from "./FeaturedCard";
-
+import { featuredItems } from "@/app/data/featured";
 const stats = [
   { value: "30+", label: "Featured Pros", color: "text-blue-600" },
   { value: "100+", label: "Wellness Experts", color: "text-green-600" },
   { value: "15K+", label: "Clients Served", color: "text-purple-600" },
   { value: "98%", label: "Satisfaction Rate", color: "text-orange-500" },
-];
-
-const featuredItems = [
-  {
-    title: "Acapulco Luxury Apartment",
-    rating: 5,
-    reviews: 1,
-    description: "Apartment on the beach in Acapulco",
-    status: "Active",
-    image: feature1,
-  },
-  {
-    title: "Kokoro Wellness",
-    rating: 5,
-    reviews: 1,
-    description: "State of the art fitness and wellness center...",
-    status: "Active",
-    image: feature2,
-  },
-  {
-    title: "Hand To Shoulder Austin",
-    rating: 5,
-    reviews: 1,
-    description: "Austin’s premier hand, wrist, elbow and shoulder care",
-    status: "Active",
-    image: feature3,
-  },
-  {
-    title: "Kyle B",
-    rating: 5,
-    reviews: 1,
-    description: "Business and leadership advisor, serial entrepreneur...",
-    status: "Active",
-    image: feature4,
-  },
-  {
-    title: "Stephen Kwame Ansong",
-    rating: 5,
-    reviews: 2,
-    description: "Dedicated fitness coach specializing in strength training",
-    status: "Inactive",
-    image: feature1,
-  },
 ];
 
 export default function FeaturedSection() {

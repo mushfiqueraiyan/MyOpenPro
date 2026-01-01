@@ -13,70 +13,12 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import eliteOne from "../assests/elitepro1.png";
-import eliteTwo from "../assests/elitePro2.png";
-import eliteThree from "../assests/elitepro3.png";
-import eliteFour from "../assests/elitepro4.png";
-
-type Pro = {
-  id: number;
-  name: string;
-  location: string;
-  price: string;
-  rating: number;
-  reviews: number;
-  image: StaticImageData;
-};
-
-const pros: Pro[] = [
-  {
-    id: 1,
-    name: "Alyssa Cappelletti",
-    location: "Austin, TX",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 2,
-    image: eliteOne,
-  },
-  {
-    id: 2,
-    name: "Mihael Rosano",
-    location: "Tlalpan, CDMX",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 1,
-    image: eliteTwo,
-  },
-  {
-    id: 3,
-    name: "Walking Tall",
-    location: "Asheville, NC",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 1,
-    image: eliteThree,
-  },
-  {
-    id: 4,
-    name: "Acapulco Luxury Apartment",
-    location: "Ciudad de Mexico, CDMX",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 1,
-    image: eliteFour,
-  },
-  {
-    id: 5,
-    name: "Mihael Rosano",
-    location: "Tlalpan, CDMX",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 1,
-    image: eliteTwo,
-  },
-];
+import { pros } from "@/app/data/elitePros";
+import { useRouter } from "next/navigation";
 
 export default function ElitePros() {
+  const router = useRouter();
+
   return (
     <section className="py-20 bg-white">
       <div className=" px-4">
@@ -136,7 +78,10 @@ export default function ElitePros() {
           >
             {pros.map((pro) => (
               <SwiperSlide key={pro.id}>
-                <div className="relative overflow-hidden rounded-xl shadow-sm h-75 gap-2 flex">
+                <div
+                  onClick={() => router.push(`/elitePro/${pro.id}`)}
+                  className="relative group overflow-hidden rounded-xl shadow-sm cursor-pointer h-75 gap-2 flex"
+                >
                   <Image
                     src={pro.image}
                     alt={pro.name}
@@ -144,7 +89,7 @@ export default function ElitePros() {
                     className="object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-black/35 p-4 flex flex-col justify-between">
-                    <div className="flex flex-col gap-1 mt-30">
+                    <div className="flex flex-col  mt-35">
                       <h4 className="font-semibold text-white">{pro.name}</h4>
                       <div className="mt-1 flex items-center gap-1 text-sm text-white">
                         <MapPin className="h-4 w-4" />
@@ -162,7 +107,7 @@ export default function ElitePros() {
                           <span className="text-white">({pro.reviews})</span>
                         </div>
                       </div>
-                      <button className="relative group mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-600 to-teal-500 px-4 py-2 text-sm font-semibold text-white hover:opacity-90">
+                      <button className="relative  mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-600 to-teal-500 px-4 py-2 text-sm font-semibold text-white hover:opacity-90">
                         <Calendar className="h-4 w-4" />
                         Instant Book
                         <span

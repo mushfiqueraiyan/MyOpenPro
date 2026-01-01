@@ -1,25 +1,39 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/navigation";
 
-type FeaturedCardProps = {
+export type FeaturedItem = {
+  id: number;
   title: string;
   rating: number;
   reviews: number;
   description: string;
+  about: string;
+  phone: string;
+  email: string;
+  location: string;
   status: string;
-  image?: StaticImageData;
+  image: StaticImageData;
 };
 
 export default function FeaturedCard({
+  id,
   title,
   rating,
   reviews,
   description,
   status,
   image,
-}: FeaturedCardProps) {
+}: FeaturedItem) {
+  const router = useRouter();
+
   return (
-    <div className="rounded-xl border-t-3 border-[#2ad4ce] bg-[#f2fef836] p-4 shadow-md transition hover:shadow-md">
+    <div
+      onClick={() => router.push(`/featured/${id}`)}
+      className="rounded-xl border-t-3 border-[#2ad4ce] bg-[#f2fef836] p-4 shadow-md transition hover:shadow-md"
+    >
       <div className="flex items-center gap-3">
         {/* Image */}
         <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-emerald-50">

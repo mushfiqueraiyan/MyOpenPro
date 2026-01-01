@@ -12,71 +12,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-
-import eliteOne from "../assests/elitepro1.png";
-import eliteTwo from "../assests/elitePro2.png";
-import eliteThree from "../assests/elitepro3.png";
-import eliteFour from "../assests/elitepro4.png";
-
-type Pro = {
-  id: number;
-  name: string;
-  location: string;
-  price: string;
-  rating: number;
-  reviews: number;
-  image: StaticImageData;
-};
-
-const pros: Pro[] = [
-  {
-    id: 1,
-    name: "Alyssa Cappelletti",
-    location: "Austin, TX",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 2,
-    image: eliteOne,
-  },
-  {
-    id: 2,
-    name: "Mihael Rosano",
-    location: "Tlalpan, CDMX",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 1,
-    image: eliteTwo,
-  },
-  {
-    id: 3,
-    name: "Walking Tall",
-    location: "Asheville, NC",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 1,
-    image: eliteThree,
-  },
-  {
-    id: 4,
-    name: "Acapulco Luxury Apartment",
-    location: "Ciudad de Mexico, CDMX",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 1,
-    image: eliteFour,
-  },
-  {
-    id: 5,
-    name: "Mihael Rosano",
-    location: "Tlalpan, CDMX",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 1,
-    image: eliteTwo,
-  },
-];
+import { pros } from "@/app/data/elitePros";
+import { useRouter } from "next/navigation";
 
 const NewBlossend = () => {
+  const router = useRouter();
+
   return (
     <div>
       <div className="mt-12 flex items-center justify-center gap-3">
@@ -114,7 +55,10 @@ const NewBlossend = () => {
         >
           {pros.map((pro) => (
             <SwiperSlide key={pro.id}>
-              <div className="relative overflow-hidden rounded-xl shadow-sm h-75 gap-2 flex">
+              <div
+                onClick={() => router.push(`/newBlossend/${pro.id}`)}
+                className="relative cursor-pointer overflow-hidden rounded-xl shadow-sm h-75 gap-2 flex"
+              >
                 <Image
                   src={pro.image}
                   alt={pro.name}
