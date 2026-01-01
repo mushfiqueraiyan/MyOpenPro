@@ -6,7 +6,7 @@ import FitnessSection from "@/components/FitnessSection";
 import Hero from "@/components/Hero";
 import NewBlossend from "@/components/NewBlossend";
 import Speciality from "@/components/Speciality";
-import Image from "next/image";
+import Map from "@/components/Map";
 
 export default function Home() {
   return (
@@ -21,6 +21,7 @@ export default function Home() {
 
       {/* Speciality */}
       <Speciality />
+      <Map />
     </div>
   );
 }

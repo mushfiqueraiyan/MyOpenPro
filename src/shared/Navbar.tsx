@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Search, Bell, ChevronDown, Menu, X, Filter } from "lucide-react";
 import logo from "../assests/logo.avif";
 import { useState } from "react";
+import SidebarFilter from "./SidebarFilter";
 
 export default function Navbar() {
   type ProCateogry = "Wellness Pro" | "Doctor Pro" | "Self Pro";
@@ -71,11 +72,17 @@ export default function Navbar() {
       </nav>
 
       <div
-        className={`fixed inset-0 z-50 transition-transform transform ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } bg-white w-90 shadow-lg`}
+        className={`fixed top-0 left-0 h-full z-50 bg-teal-100 w-95 bg-card shadow-sidebar transition-all duration-700 ease-out ${
+          sidebarOpen
+            ? "translate-x-0 rounded-none"
+            : "-translate-x-[calc(100%-1px)] rounded-r-[200px]"
+        }`}
       >
-        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+        <div
+          className={`flex items-center justify-between p-4 border-b border-gray-200 ${
+            sidebarOpen ? "flex" : "hidden"
+          }`}
+        >
           <h2 className="text-lg font-bold flex items-center justify-between gap-3">
             Search Filter <Filter />
           </h2>
@@ -83,28 +90,9 @@ export default function Navbar() {
             <X className="w-6 h-6 text-gray-600" />
           </button>
         </div>
-        <ul className="p-4 flex flex-col gap-4">
-          <li>
-            <a href="#" className="hover:text-teal-500">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-teal-500">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-teal-500">
-              Services
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-teal-500">
-              Contact
-            </a>
-          </li>
-        </ul>
+        <div className={`${sidebarOpen ? "flex" : "hidden"}`}>
+          <SidebarFilter />
+        </div>
       </div>
 
       {/* Overlay */}
