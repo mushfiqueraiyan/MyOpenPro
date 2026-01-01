@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Search, Bell, ChevronDown, Menu } from "lucide-react";
+import { Search, Bell, ChevronDown, Menu, X, Filter } from "lucide-react";
 import logo from "../assests/logo.avif";
 import { useState } from "react";
 
@@ -9,7 +9,7 @@ export default function Navbar() {
   type ProCateogry = "Wellness Pro" | "Doctor Pro" | "Self Pro";
 
   const [search, setSearch] = useState<ProCateogry>("Wellness Pro");
-
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className="relative">
       <div className="absolute -top-3.5 inset-0 bg-[linear-gradient(to_right,#e5f3f0_1px,transparent_1px),linear-gradient(to_bottom,#e5f3f0_1px,transparent_1px)] bg-size-[40px_40px] -z-10" />
@@ -24,7 +24,10 @@ export default function Navbar() {
             {/* Center: Search */}
             <div className="flex-1 max-w-2xl">
               <div className=" items-center hidden md:flex bg-gray-100 rounded-full px-4 py-2 gap-2">
-                <Menu className="w-5 h-5 text-gray-600" />
+                <Menu
+                  onClick={() => setSidebarOpen(true)}
+                  className="w-5 h-5 text-gray-600 cursor-pointer hover:text-emerald-600 transform duration-300"
+                />
                 <select
                   value={search}
                   onChange={(e) => setSearch(e.target.value as ProCateogry)}
@@ -66,6 +69,51 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+
+      <div
+        className={`fixed inset-0 z-50 transition-transform transform ${
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } bg-white w-90 shadow-lg`}
+      >
+        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+          <h2 className="text-lg font-bold flex items-center justify-between gap-3">
+            Search Filter <Filter />
+          </h2>
+          <button onClick={() => setSidebarOpen(false)}>
+            <X className="w-6 h-6 text-gray-600" />
+          </button>
+        </div>
+        <ul className="p-4 flex flex-col gap-4">
+          <li>
+            <a href="#" className="hover:text-teal-500">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#" className="hover:text-teal-500">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#" className="hover:text-teal-500">
+              Services
+            </a>
+          </li>
+          <li>
+            <a href="#" className="hover:text-teal-500">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0  z-40"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
     </div>
   );
 }
