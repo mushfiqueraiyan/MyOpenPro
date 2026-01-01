@@ -9,6 +9,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { pros } from "@/app/data/elitePros";
+import BackButton from "@/ui/ClientButton";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -26,14 +27,15 @@ export default async function EliteProProfilePage({ params }: Props) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* ================= HEADER ================= */}
-      <div className="bg-linear-to-r from-blue-600 to-teal-500 px-6 py-10">
+      <div className="bg-linear-to-r from-blue-600 to-teal-500 px-6 py-10 mt-5">
+        <div className="mx-auto max-w-7xl text-white">
+          <BackButton />
+        </div>
         <div className="mx-auto max-w-7xl flex items-center gap-6">
           <Image
             src={pro.image}
             alt={pro.name}
-            width={150}
-            height={150}
-            className="rounded-full border-4 border-white object-cover"
+            className="rounded-full w-50 h-50 border-4 border-white object-cover"
           />
 
           <div className="text-white">
@@ -66,12 +68,12 @@ export default async function EliteProProfilePage({ params }: Props) {
       </div>
 
       {/* ================= BODY ================= */}
-      <div className="mx-auto max-w-7xl px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="mx-auto max-w-370 px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* LEFT SIDE */}
         <div className="lg:col-span-2 space-y-8">
           {/* CONTACT INFO */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-xl p-5 shadow-sm flex gap-4">
+            <div className="bg-white rounded-xl p-5 shadow-sm flex items-center gap-4">
               <div className="rounded-full bg-teal-50 p-2">
                 <Phone className="text-teal-600" />
               </div>
@@ -81,7 +83,7 @@ export default async function EliteProProfilePage({ params }: Props) {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl p-5 shadow-sm flex gap-4">
+            <div className="bg-white rounded-xl p-5 shadow-sm flex items-center gap-4">
               <div className="rounded-full bg-teal-50 p-2">
                 <Mail className="text-teal-600" />
               </div>
@@ -91,7 +93,7 @@ export default async function EliteProProfilePage({ params }: Props) {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl p-5 shadow-sm flex gap-4">
+            <div className="bg-white rounded-xl p-5 shadow-sm flex items-center gap-4">
               <div className="rounded-full bg-teal-50 p-2">
                 <MapPin className="text-teal-600" />
               </div>

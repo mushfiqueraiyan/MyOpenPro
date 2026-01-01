@@ -27,7 +27,7 @@ const CareCard = ({
     <div>
       <div
         onClick={() => router.push(`/featured/${id}`)}
-        className="rounded-xl border-t-3 border-[#2ad4ce] bg-[#f2fef836] p-4 shadow-md transition hover:shadow-md"
+        className="rounded-xl cursor-pointer border-t-3 hover:border-t transform duration-300 ease-in transition border-[#2ad4ce] bg-[#f2fef836] p-4 shadow-md  hover:shadow-md"
       >
         <div className="flex items-center gap-3">
           {/* Image */}

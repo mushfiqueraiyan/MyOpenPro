@@ -9,8 +9,11 @@ import "swiper/css/pagination";
 
 import heroImg from "../assests/herodoctor.webp";
 import heroImg2 from "../assests/heroType.webp";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+  const router = useRouter();
+
   return (
     <section className="relative h-300 md:h-200 overflow-hidden">
       {/* Grid background */}
@@ -57,7 +60,10 @@ export default function Hero() {
               </p>
 
               {/* CTA */}
-              <button className="mt-8 inline-flex items-center gap-3 bg-[#15897E] hover:bg-[#108176] text-white px-6 py-4 rounded-xl font-semibold transition">
+              <button
+                onClick={() => router.push("/signup")}
+                className="mt-8 cursor-pointer inline-flex items-center gap-3 bg-[#15897E] hover:bg-[#108176] text-white px-6 py-4 rounded-xl font-semibold transition"
+              >
                 Get Started Now
                 <ArrowRight className="w-5 h-5" />
               </button>
@@ -124,7 +130,10 @@ export default function Hero() {
               </p>
 
               {/* CTA */}
-              <button className="mt-8 inline-flex items-center gap-3 bg-[#15897E] hover:bg-[#108176] text-white px-6 py-4 rounded-xl font-semibold transition">
+              <button
+                onClick={() => router.push("/signup")}
+                className="mt-8 cursor-pointer inline-flex items-center gap-3 bg-[#15897E] hover:bg-[#108176] text-white px-6 py-4 rounded-xl font-semibold transition"
+              >
                 Get Started Now
                 <ArrowRight className="w-5 h-5" />
               </button>

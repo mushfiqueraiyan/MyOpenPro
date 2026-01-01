@@ -1,6 +1,6 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import {
   ChevronLeft,
   ChevronRight,
@@ -12,68 +12,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-
-import userIcon from "../assests/userIcon.png";
-
-type Pro = {
-  id: number;
-  name: string;
-  location: string;
-  price: string;
-  rating: number;
-  reviews: number;
-  image: StaticImageData;
-};
-
-const pros: Pro[] = [
-  {
-    id: 1,
-    name: "Alyssa Cappelletti",
-    location: "Austin, TX",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 2,
-    image: userIcon,
-  },
-  {
-    id: 2,
-    name: "Mihael Rosano",
-    location: "Tlalpan, CDMX",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 1,
-    image: userIcon,
-  },
-  {
-    id: 3,
-    name: "Walking Tall",
-    location: "Asheville, NC",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 1,
-    image: userIcon,
-  },
-  {
-    id: 4,
-    name: "Acapulco Luxury Apartment",
-    location: "Ciudad de Mexico, CDMX",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 1,
-    image: userIcon,
-  },
-  {
-    id: 5,
-    name: "Mihael Rosano",
-    location: "Tlalpan, CDMX",
-    price: "$0.00 / visit*",
-    rating: 5.0,
-    reviews: 1,
-    image: userIcon,
-  },
-];
+import { pros } from "@/app/data/alternative";
+import { useRouter } from "next/navigation";
 
 const Alternative = () => {
+  const router = useRouter();
+
   return (
     <div>
       <div className="mt-12 flex items-center justify-center gap-3">
@@ -111,7 +55,10 @@ const Alternative = () => {
         >
           {pros.map((pro) => (
             <SwiperSlide key={pro.id}>
-              <div className="relative overflow-hidden rounded-xl shadow-sm h-75 gap-2 flex">
+              <div
+                onClick={() => router.push(`/alternative/${pro.id}`)}
+                className="relative cursor-pointer group overflow-hidden rounded-xl shadow-sm h-75 gap-2 flex"
+              >
                 <Image
                   src={pro.image}
                   alt={pro.name}
@@ -137,7 +84,7 @@ const Alternative = () => {
                         <span className="text-white">({pro.reviews})</span>
                       </div>
                     </div>
-                    <button className="relative group mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-600 to-teal-500 px-4 py-2 text-sm font-semibold text-white hover:opacity-90">
+                    <button className="relative  mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-600 to-teal-500 px-4 py-2 text-sm font-semibold text-white hover:opacity-90">
                       <Calendar className="h-4 w-4" />
                       Instant Book
                       <span

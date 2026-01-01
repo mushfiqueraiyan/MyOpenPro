@@ -1,22 +1,9 @@
 import React from "react";
 import { Dumbbell, Sparkle, Sparkles } from "lucide-react";
-import feature1 from "../assests/feature1.webp";
-import feature2 from "../assests/feature2.webp";
-import feature3 from "../assests/feature3.webp";
-import feature4 from "../assests/feature4.webp";
 
-import CareCard from "./CareCard";
 import FitnessCard from "./FitnessCard";
-import { StaticImageData } from "next/image";
 
-type Fit = {
-  title: string;
-  rating: number;
-  reviews: number;
-  description: string;
-  status: string;
-  image: StaticImageData;
-};
+import { featuredItems } from "@/app/data/featured";
 
 const stats = [
   { value: "5+", label: "Fitness Partner", color: "text-blue-600" },
@@ -29,48 +16,6 @@ const stats = [
   { value: "97%", label: "Client Satisfaction", color: "text-orange-500" },
 ];
 
-const featuredItems: Fit[] = [
-  {
-    title: "Acapulco Luxury Apartment",
-    rating: 5,
-    reviews: 1,
-    description: "Apartment on the beach in Acapulco",
-    status: "Active",
-    image: feature1,
-  },
-  {
-    title: "Kokoro Wellness",
-    rating: 5,
-    reviews: 1,
-    description: "State of the art fitness and wellness center...",
-    status: "Active",
-    image: feature2,
-  },
-  {
-    title: "Hand To Shoulder Austin",
-    rating: 5,
-    reviews: 1,
-    description: "Austin’s premier hand, wrist, elbow and shoulder care",
-    status: "Active",
-    image: feature3,
-  },
-  {
-    title: "Kyle B",
-    rating: 5,
-    reviews: 1,
-    description: "Business and leadership advisor, serial entrepreneur...",
-    status: "Active",
-    image: feature4,
-  },
-  {
-    title: "Stephen Kwame Ansong",
-    rating: 5,
-    reviews: 2,
-    description: "Dedicated fitness coach specializing in strength training",
-    status: "Inactive",
-    image: feature1,
-  },
-];
 const FitnessSection = () => {
   return (
     <div>

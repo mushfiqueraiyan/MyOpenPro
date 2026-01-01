@@ -12,7 +12,6 @@ export type Pro = {
   rating: number;
   reviews: number;
   image: StaticImageData;
-
   phone: string;
   email: string;
   services: string[];

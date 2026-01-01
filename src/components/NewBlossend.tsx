@@ -57,7 +57,7 @@ const NewBlossend = () => {
             <SwiperSlide key={pro.id}>
               <div
                 onClick={() => router.push(`/newBlossend/${pro.id}`)}
-                className="relative cursor-pointer overflow-hidden rounded-xl shadow-sm h-75 gap-2 flex"
+                className="relative group cursor-pointer overflow-hidden rounded-xl shadow-sm h-75 gap-2 flex"
               >
                 <Image
                   src={pro.image}
@@ -84,7 +84,7 @@ const NewBlossend = () => {
                         <span className="text-white">({pro.reviews})</span>
                       </div>
                     </div>
-                    <button className="relative group mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-600 to-teal-500 px-4 py-2 text-sm font-semibold text-white hover:opacity-90">
+                    <button className="relative  mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-600 to-teal-500 px-4 py-2 text-sm font-semibold text-white hover:opacity-90">
                       <Calendar className="h-4 w-4" />
                       Instant Book
                       <span

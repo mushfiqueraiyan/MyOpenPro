@@ -1,15 +1,26 @@
-import React from "react";
+"use client";
 import { ArrowRight } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/navigation";
+
 type FitnessProp = {
+  id: number;
   title: string;
   rating: number;
   reviews: number;
   description: string;
+  about: string;
+  phone: string;
+  email: string;
+  location: string;
   status: string;
-  image?: StaticImageData;
+  image: StaticImageData;
 };
 const FitnessCard = ({
+  id,
+  about,
+  location,
+  phone,
   title,
   rating,
   reviews,
@@ -17,9 +28,14 @@ const FitnessCard = ({
   status,
   image,
 }: FitnessProp) => {
+  const router = useRouter();
+
   return (
     <div>
-      <div className="rounded-xl border-t-3 border-[#2ad4ce] bg-[#f2fef836] p-4 shadow-md transition hover:shadow-md">
+      <div
+        onClick={() => router.push(`/featured/${id}`)}
+        className="rounded-xl cursor-pointer border-t-3 hover:border-t transform duration-300 ease-in border-[#2ad4ce] bg-[#f2fef836] p-4 shadow-md transition hover:shadow-md"
+      >
         <div className="flex items-center gap-3">
           {/* Image */}
           <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-emerald-50">

@@ -7,8 +7,10 @@ import {
   Mail,
   Calendar,
   MessageCircle,
+  ArrowLeft,
 } from "lucide-react";
 import { featuredItems } from "@/app/data/featured";
+import BackButton from "@/ui/ClientButton";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -26,7 +28,10 @@ export default async function EliteProProfilePage({ params }: Props) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* ================= HEADER ================= */}
-      <div className="bg-linear-to-r from-blue-600 to-teal-500 px-6 py-10">
+      <div className="bg-linear-to-r from-blue-600 to-teal-500 px-6 py-10 mt-3">
+        <div className="mx-auto max-w-7xl text-white">
+          <BackButton />
+        </div>
         <div className="mx-auto max-w-7xl flex items-center gap-6">
           <Image
             src={pro.image}
@@ -64,7 +69,7 @@ export default async function EliteProProfilePage({ params }: Props) {
       </div>
 
       {/* ================= BODY ================= */}
-      <div className="mx-auto  px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="mx-auto max-w-370 px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* LEFT SIDE */}
         <div className="lg:col-span-2 space-y-8">
           {/* CONTACT INFO */}

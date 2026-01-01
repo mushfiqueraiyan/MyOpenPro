@@ -8,7 +8,7 @@ import {
   Calendar,
   MessageCircle,
 } from "lucide-react";
-import { pros } from "@/app/data/elitePros";
+import { pros } from "@/app/data/alternative";
 import BackButton from "@/ui/ClientButton";
 
 type Props = {
@@ -109,10 +109,10 @@ export default async function EliteProProfilePage({ params }: Props) {
           {/* ABOUT */}
           <div className="bg-white rounded-xl p-6 shadow-sm">
             <h2 className="text-xl font-bold mb-4">About</h2>
-            <p className="text-gray-700">{pro.bio}</p>
+            <p className="text-gray-700">{pro.about}</p>
 
             <h3 className="mt-6 font-semibold">Specialties & Services</h3>
-            <div className="mt-3 flex flex-wrap gap-2">
+            {/* <div className="mt-3 flex flex-wrap gap-2">
               {pro.services.map((service) => (
                 <span
                   key={service}
@@ -121,7 +121,7 @@ export default async function EliteProProfilePage({ params }: Props) {
                   {service}
                 </span>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* REVIEWS */}
