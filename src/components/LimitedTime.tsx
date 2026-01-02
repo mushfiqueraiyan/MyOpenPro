@@ -1,6 +1,7 @@
 "use client";
 import { Clock, Users, Zap } from "lucide-react";
 import React, { useState } from "react";
+import CoutDown from "@/components/CoutDown";
 
 const LimitedTime = () => {
   const [liveUsers, setLiveUsers] = useState(847);
@@ -30,7 +31,7 @@ const LimitedTime = () => {
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
+          {/* <div className="flex items-center gap-3">
             <div className="bg-white p-5 rounded-xl font-bold text-2xl  shadow-emerald-100 shadow-xl  text-[#15897E]">
               23
             </div>
@@ -40,7 +41,9 @@ const LimitedTime = () => {
             <div className="bg-white p-5 rounded-xl font-bold text-2xl  shadow-emerald-100 shadow-xl  text-[#15897E]">
               36
             </div>
-          </div>
+          </div> */}
+
+          <CoutDown />
         </div>
 
         {/* Stats */}

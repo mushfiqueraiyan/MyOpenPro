@@ -32,7 +32,7 @@ export default function SeekerProCard() {
         </p>
 
         {/* CTA */}
-        <button className="w-full md:w-auto px-10 py-4 rounded-xl bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-semibold text-sm hover:scale-[1.02] transition">
+        <button className="w-full md:w-auto px-10 py-4 rounded-xl bg-linear-to-r from-yellow-400 to-orange-500 text-black font-semibold text-sm hover:scale-[1.02] transition">
           🎁 JOIN SeekerPro → SPIN TO WIN + UNLIMITED POSTS
         </button>
 
