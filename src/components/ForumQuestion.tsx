@@ -6,9 +6,45 @@ import {
   Users,
   Zap,
 } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
+
+type Post = {
+  _id: string;
+  question: string;
+  content: string;
+  createdAt?: string;
+};
 
 const ForumQuestion = () => {
+  const [answer, setAnswer] = useState("");
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [question, setQuestion] = useState(
+    "What's the one thing you wish existed that doesn't yet?"
+  );
+
+  const cont = {
+    question,
+    answer,
+  };
+
+  const submitAnswer = async () => {
+    const res = await fetch("/api/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ content: cont }),
+    });
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      console.error("API ERROR:", errorText);
+      return;
+    }
+
+    const newPost: Post = await res.json();
+    setPosts((prev) => [newPost, ...prev]);
+    setAnswer("");
+  };
+
   return (
     <div className="bg-[#FBFBFB] py-5 px-5">
       <div className="flex items-center gap-4 pb-5">
@@ -52,11 +88,13 @@ const ForumQuestion = () => {
 
       <div className="bg-card border border-gray-200 rounded-xl p-5 mt-6 space-y-4">
         <p className="text-lg font-medium text-gray-700 text-foreground text-left">
-          What's the one thing you wish existed that doesn't yet?
+          {question}
         </p>
 
         <div className="relative">
           <textarea
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
             placeholder="Type your answer here..."
             className="w-full h-24 bg-muted/50 border border-gray-200 rounded-lg p-4 text-foreground placeholder:text-muted-foreground resize-none focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
           />
@@ -65,7 +103,10 @@ const ForumQuestion = () => {
           </div>
         </div>
 
-        <button className="w-full transition hover:scale-[1.02] hover:shadow-xl font-bold bg-linear-to-r from-[#12888A] via-[#1180C2] to-[#2472F2] flex items-center text-white p-3 rounded-xl text-center justify-center gap-3">
+        <button
+          onClick={submitAnswer}
+          className="w-full transition hover:scale-[1.02] hover:shadow-xl font-bold bg-linear-to-r from-[#12888A] via-[#1180C2] to-[#2472F2] flex items-center text-white p-3 rounded-xl text-center justify-center gap-3"
+        >
           <Zap className="w-5 h-5" />
           Join SeekerPro & Submit Answer
         </button>

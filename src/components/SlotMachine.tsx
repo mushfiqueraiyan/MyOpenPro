@@ -1,7 +1,12 @@
+"use client";
+
 import { BoltIcon, GiftIcon, SparklesIcon } from "lucide-react";
-import React from "react";
+import { useState } from "react";
+import Spin from "@/components/Spin";
 
 const SlotMachine = () => {
+  const [openSpin, setOpenSpin] = useState(false);
+
   return (
     <div>
       {" "}
@@ -49,10 +54,15 @@ const SlotMachine = () => {
         </div>
 
         {/* CTA */}
-        <button className="flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#12888A] via-[#1180C2] to-[#2472F2] text-white px-5 py-4 text-sm font-extrabold  shadow-lg transition hover:scale-[1.02] hover:shadow-xl">
+        <button
+          onClick={() => setOpenSpin(true)}
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#12888A] via-[#1180C2] to-[#2472F2] text-white px-5 py-4 text-sm font-extrabold  shadow-lg transition hover:scale-[1.02] hover:shadow-xl"
+        >
           <BoltIcon className="h-5 w-5" />
           JOIN SeekerPro → SPIN TO WIN
         </button>
+
+        {openSpin && <Spin />}
 
         {/* Footer */}
         <p className="mt-3 text-xs text-gray-400">

@@ -5,7 +5,7 @@ import CoutDown from "@/components/CoutDown";
 
 const LimitedTime = () => {
   const [liveUsers, setLiveUsers] = useState(847);
-  const [spots, setSpots] = useState(23);
+  const [spots, setSpots] = useState(22);
 
   return (
     <div>
