@@ -21,7 +21,7 @@ export async function GET(req: Request) {
   const postId = searchParams.get("postId");
 
   const client = await getMongoClient();
-  const db = client.db();
+  const db = client.db("openpro");
 
   const comments = await db.collection("comments").find({ postId }).toArray();
 

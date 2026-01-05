@@ -23,7 +23,7 @@ const LimitedTime = () => {
         </div>
 
         {/* Timer */}
-        <div className="space-y-2">
+        <div className="space-y-2 border border-gray-300 p-3 rounded-2xl">
           <div className="flex items-center gap-2 text-muted-foreground mb-5">
             <Clock className="w-4 h-4" color="#ADB2BB" />
             <span className="text-xs uppercase tracking-wider text-gray-500">
@@ -47,7 +47,7 @@ const LimitedTime = () => {
         </div>
 
         {/* Stats */}
-        <div className="space-y-3 text-gray-600 pt-4 border-t border-gray-200">
+        <div className="space-y-3 text-gray-600 pt-4 border border-gray-300 p-3 rounded-2xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Users className="w-4 h-4" />
@@ -71,7 +71,7 @@ const LimitedTime = () => {
 
         {/* Urgency bar */}
         <div className="space-y-2">
-          <div className="h-2 bg-muted rounded-full overflow-hidden">
+          <div className="h-2 bg-muted rounded-full overflow-hidden border border-gray-200">
             <div
               className="h-full bg-linear-to-r from-[#15897E] to-[#2770F8] rounded-full transition-all duration-1000"
               style={{ width: `${(spots / 100) * 100}%` }}

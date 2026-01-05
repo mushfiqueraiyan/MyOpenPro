@@ -5,10 +5,12 @@ import { useParams, useRouter } from "next/navigation";
 import {
   ArrowLeft,
   Clock,
+  Heart,
   MessageCircle,
   Send,
   Share2,
   ThumbsUp,
+  User,
 } from "lucide-react";
 
 interface Post {
@@ -128,7 +130,7 @@ export default function IndividualPostPage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-blue-50">
       {/* Header */}
       <header
         onClick={() => router.push("/feed")}
@@ -146,7 +148,10 @@ export default function IndividualPostPage() {
         {/* Post Card */}
         <article className="bg-white rounded-2xl shadow-sm shadow-slate-200/50 border border-slate-200/60 overflow-hidden hover:shadow-md hover:shadow-slate-200/50 transition-all duration-300">
           <div className="p-6 space-y-4">
-            <h2 className="text-2xl font-bold text-slate-900 leading-tight">
+            <h2 className="text-2xl flex items-center gap-3 font-bold text-slate-900 leading-tight">
+              <div className="bg-emerald-600  p-2 rounded-full">
+                <User color="white" size={30} />
+              </div>{" "}
               {post.question}
             </h2>
             <p className="text-slate-600 leading-relaxed text-base">
@@ -164,9 +169,9 @@ export default function IndividualPostPage() {
               <div className="flex items-center gap-2">
                 <button
                   onClick={toggleLike}
-                  className="flex items-center gap-1 px-3 py-1 rounded-lg hover:bg-slate-100 transition-colors duration-200"
+                  className="flex items-center gap-1 px-3 py-1 rounded-lg hover:bg-red-300 transition-colors duration-200"
                 >
-                  <ThumbsUp className="w-4 h-4" />
+                  <Heart className="w-4 h-4" />
                   <span>{like}</span>
                 </button>
 
@@ -198,7 +203,7 @@ export default function IndividualPostPage() {
           {/* Comment Input */}
           <div className="p-4 border-b border-slate-100 bg-slate-50/50">
             <div className="flex gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+              <div className="w-10 h-10 rounded-full bg-linear-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-semibold text-sm shrink-0">
                 Y
               </div>
               <div className="flex-1 flex gap-2">

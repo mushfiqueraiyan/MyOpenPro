@@ -3,10 +3,12 @@ import {
   Globe,
   MessageSquare,
   Trophy,
+  User,
   Users,
   Zap,
 } from "lucide-react";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 type Post = {
   _id: string;
@@ -37,11 +39,13 @@ const ForumQuestion = () => {
     if (!res.ok) {
       const errorText = await res.text();
       console.error("API ERROR:", errorText);
+      toast.error("Something went wrong!");
       return;
     }
 
     const newPost: Post = await res.json();
     setPosts((prev) => [newPost, ...prev]);
+    toast.success("Post added successfully!");
     setAnswer("");
   };
 
@@ -72,7 +76,7 @@ const ForumQuestion = () => {
         </h1>
       </div>
 
-      <div className="flex items-center gap-3 text-left my-4 text-gray-500">
+      {/* <div className="flex items-center gap-3 text-left my-4 text-gray-500">
         <Globe className="w-5 h-5 text-blue-500" />
         <p className="text-sm lg:text-base">
           Your voice seen by
@@ -82,37 +86,40 @@ const ForumQuestion = () => {
           </span>{" "}
           & millions of visitors
         </p>
-      </div>
+      </div> */}
 
       {/* Text area */}
 
       <div className="bg-card border border-gray-200 rounded-xl p-5 mt-6 space-y-4">
-        <p className="text-lg font-medium text-gray-700 text-foreground text-left">
+        <p className="text-2xl font-medium text-gray-700 text-foreground text-left">
           {question}
         </p>
 
-        <div className="relative">
-          <textarea
-            value={answer}
-            onChange={(e) => setAnswer(e.target.value)}
-            placeholder="Type your answer here..."
-            className="w-full h-24 bg-muted/50 border border-gray-200 rounded-lg p-4 text-foreground placeholder:text-muted-foreground resize-none focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
-          />
-          <div className="absolute bottom-3 right-3 text-xs text-muted-foreground">
-            0/500
+        <div className="flex items-center gap-2 w-full">
+          <button className="hidden md:flex transition cursor-pointer hover:scale-[1.02] hover:shadow-xl font-bold bg-linear-to-r from-[#12888A] via-[#1180C2] to-[#2472F2] flex items-center text-white p-3 rounded-full text-center justify-center gap-3">
+            <User />
+          </button>
+          <div className="relative w-full">
+            <textarea
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              placeholder="Type your answer here..."
+              className="w-full h-20 bg-muted/50 border border-gray-400 rounded-lg p-4 text-foreground placeholder:text-muted-foreground resize-none focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+            />
+            <div className="absolute bottom-3 right-3 text-xs text-muted-foreground">
+              0/500
+            </div>
           </div>
+          <button
+            onClick={submitAnswer}
+            className=" transition cursor-pointer hover:scale-[1.02] hover:shadow-xl font-bold bg-linear-to-r from-[#12888A] via-[#1180C2] to-[#2472F2] flex items-center text-white p-3 rounded-xl text-center justify-center gap-3"
+          >
+            Answer
+          </button>
         </div>
-
-        <button
-          onClick={submitAnswer}
-          className="w-full transition hover:scale-[1.02] hover:shadow-xl font-bold bg-linear-to-r from-[#12888A] via-[#1180C2] to-[#2472F2] flex items-center text-white p-3 rounded-xl text-center justify-center gap-3"
-        >
-          <Zap className="w-5 h-5" />
-          Join SeekerPro & Submit Answer
-        </button>
       </div>
 
-      <div className="flex my-4 items-center justify-between rounded-xl bg-white px-4 py-3 shadow-sm">
+      <div className="flex my-4 items-center justify-between rounded-xl bg-white px-4 py-3 shadow-sm border border-gray-300 rounded-2xl">
         {/* Left: Avatars + Count */}
         <div className="flex items-center gap-3">
           {/* Avatars */}

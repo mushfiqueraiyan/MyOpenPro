@@ -7,10 +7,12 @@ import Hero from "@/components/Hero";
 import NewBlossend from "@/components/NewBlossend";
 import Speciality from "@/components/Speciality";
 import Map from "@/components/Map";
+import PostFeed from "@/components/Post";
 
 export default function Home() {
   return (
     <div className="">
+      <PostFeed />
       <Hero />
       <ElitePros />
       <FeaturedSection />
