@@ -23,7 +23,7 @@ const LimitedTime = () => {
         </div>
 
         {/* Timer */}
-        <div className="space-y-2 border border-gray-300 p-3 rounded-2xl">
+        <div className="space-y-2 border border-gray-800 p-3 rounded-2xl">
           <div className="flex items-center gap-2 text-muted-foreground mb-5">
             <Clock className="w-4 h-4" color="#ADB2BB" />
             <span className="text-xs uppercase tracking-wider text-gray-500">
@@ -47,7 +47,7 @@ const LimitedTime = () => {
         </div>
 
         {/* Stats */}
-        <div className="space-y-3 text-gray-600 pt-4 border border-gray-300 p-3 rounded-2xl">
+        <div className="space-y-3 text-gray-600 pt-4 border border-gray-800 p-3 rounded-2xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Users className="w-4 h-4" />

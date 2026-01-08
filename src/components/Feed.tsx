@@ -46,12 +46,12 @@ const Page = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-slate-50 via-white to-slate-100/50 ">
+    <div className="bg-gradient-to-b from-slate-50 via-white to-slate-100/50 h-122 overflow-y-auto">
       <main className="max-w-5xl mx-auto px-4 py-6 space-y-4">
-        {posts.slice(0, 6).map((post) => (
+        {posts.map((post) => (
           <article
             key={post._id}
-            className="group border border-gray-300 bg-white rounded-2xl  hover:border-violet-200 shadow-sm hover:shadow-xl hover:shadow-violet-100/50 transition-all duration-300"
+            className="group border border-gray-800 bg-white rounded-2xl  hover:border-violet-200 shadow-sm hover:shadow-xl hover:shadow-violet-100/50 transition-all duration-300"
           >
             {/* Header */}
             <div className="p-5 pb-3 flex items-start justify-between">
@@ -127,7 +127,7 @@ const Page = () => {
         ))}
 
         {/* LOAD MORE */}
-        {posts.length > 6 && (
+        {/* {posts.length > 6 && (
           <div className="flex justify-center pt-8">
             <button
               onClick={() => router.push("/feed")}
@@ -136,7 +136,7 @@ const Page = () => {
               Load more
             </button>
           </div>
-        )}
+        )} */}
       </main>
     </div>
   );

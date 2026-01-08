@@ -146,7 +146,7 @@ export default function IndividualPostPage() {
 
       <main className="max-w-4xl mx-auto px-4 py-6 space-y-6">
         {/* Post Card */}
-        <article className="bg-white rounded-2xl shadow-sm shadow-slate-200/50 border border-slate-200/60 overflow-hidden hover:shadow-md hover:shadow-slate-200/50 transition-all duration-300">
+        <article className="bg-white rounded-2xl shadow-sm shadow-slate-200/50 border border-gray-700 overflow-hidden hover:shadow-md hover:shadow-slate-200/50 transition-all duration-300">
           <div className="p-6 space-y-4">
             <h2 className="text-2xl flex items-center gap-3 font-bold text-slate-900 leading-tight">
               <div className="bg-emerald-600  p-2 rounded-full">
@@ -158,7 +158,7 @@ export default function IndividualPostPage() {
               {post.answer}
             </p>
 
-            <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+            <div className="flex items-center justify-between pt-4 border-t  border-gray-400">
               <div className="flex items-center gap-2 text-slate-400">
                 <Clock className="w-4 h-4" />
                 <span className="text-sm">
@@ -189,7 +189,7 @@ export default function IndividualPostPage() {
         </article>
 
         {/* Comments Section */}
-        <section className="bg-white rounded-2xl shadow-sm shadow-slate-200/50 border border-slate-200/60 overflow-hidden">
+        <section className="bg-white rounded-2xl shadow-sm shadow-slate-200/50 border border-gray-700 overflow-hidden">
           {/* Comments Header */}
           <div className="px-6 py-4 border-b border-slate-100">
             <h3 className="text-lg font-semibold text-slate-800">
@@ -201,7 +201,7 @@ export default function IndividualPostPage() {
           </div>
 
           {/* Comment Input */}
-          <div className="p-4 border-b border-slate-100 bg-slate-50/50">
+          <div className="p-4 border-b border-gray-400 bg-slate-50/50">
             <div className="flex gap-3">
               <div className="w-10 h-10 rounded-full bg-linear-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-semibold text-sm shrink-0">
                 Y
@@ -227,7 +227,7 @@ export default function IndividualPostPage() {
           </div>
 
           {/* Comments List */}
-          <div className="divide-y divide-slate-100">
+          <div className="divide-y divide-gray-500">
             {comments.length === 0 ? (
               <div className="p-8 text-center">
                 <MessageCircle className="w-12 h-12 text-slate-300 mx-auto mb-3" />

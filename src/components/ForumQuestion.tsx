@@ -90,7 +90,7 @@ const ForumQuestion = () => {
 
       {/* Text area */}
 
-      <div className="bg-card border border-gray-200 rounded-xl p-5 mt-6 space-y-4">
+      <div className="bg-card border border-gray-600 rounded-xl p-5 mt-6 space-y-4">
         <p className="text-2xl font-medium text-gray-700 text-foreground text-left">
           {question}
         </p>
