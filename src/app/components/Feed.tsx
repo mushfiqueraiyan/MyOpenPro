@@ -32,7 +32,6 @@ const Page = () => {
     };
 
     fetchPosts();
-
     const interval = setInterval(fetchPosts, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -46,99 +45,86 @@ const Page = () => {
   };
 
   return (
-    <div className="mt-5  border-t border-l border-b border-[#9bffe6] bg-[#eafffa] h-122 overflow-y-auto rounded-4xl mx-2">
-      <main className="max-w-5xl mx-auto px-4 py-6 space-y-4">
+    <div className="mt-4 h-150 overflow-y-auto border border-[#9bffe6] bg-[#eafffa] rounded-3xl mx-2 overflow-y-auto">
+      <main className="max-w-5xl mx-auto px-3 py-4 space-y-3">
         {posts.map((post) => (
           <article
             key={post._id}
-            className="group border border-gray-200 bg-white rounded-2xl  hover:border-violet-200 shadow-sm hover:shadow-xl hover:shadow-violet-100/50 transition-all duration-300"
+            className="group rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition"
           >
             {/* Header */}
-            <div className="  flex items-start justify-between">
-              <div className="flex items-center gap-3">
-                <div className="px-3 pt-3 pb-2 flex items-center gap-3 w-full">
-                  <div className="w-11 h-11 rounded-full bg-[#23705d] p-0.5">
-                    <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-                      <User className="w-5 h-5 text-slate-500" />
-                    </div>
+            <div className="flex items-start justify-between px-3 pt-3">
+              <div className="flex items-center gap-2">
+                <div className="w-9 h-9 rounded-full bg-[#23705d] p-0.5">
+                  <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
+                    <User className="w-4 h-4 text-slate-500" />
                   </div>
+                </div>
 
-                  <div className="">
-                    <p className="font-semibold text-slate-800">Anonymous</p>
-                    <span className="text-sm text-slate-400">
-                      {new Date(post.createdAt || "").toLocaleDateString(
-                        "en-US",
-                        {
-                          month: "short",
-                          day: "numeric",
-                        }
-                      )}
-                    </span>
-                  </div>
+                <div className="leading-tight">
+                  <p className="text-sm font-semibold text-slate-800">
+                    Anonymous
+                  </p>
+                  <span className="text-xs text-slate-400">
+                    {new Date(post.createdAt || "").toLocaleDateString(
+                      "en-US",
+                      { month: "short", day: "numeric" }
+                    )}
+                  </span>
                 </div>
               </div>
 
-              <button className="p-2 rounded-lg hover:bg-slate-100">
-                <MoreHorizontal className="w-5 h-5 text-slate-400" />
+              <button className="p-1.5 rounded-md hover:bg-slate-100">
+                <MoreHorizontal className="w-4 h-4 text-slate-400" />
               </button>
             </div>
 
             {/* Content */}
-            <div className="px-5 pb-2">
-              <h2 className="text-lg font-semibold text-slate-900 mb-2">
+            <div className="px-3 pt-2 pb-1">
+              <h2 className="text-md font-semibold text-slate-900 leading-snug">
                 {post.question}
               </h2>
-              <p className="text-slate-500 line-clamp-2">
+
+              <p className="mt-1 text-sm text-slate-600 leading-snug line-clamp-2">
                 {post.answer}{" "}
                 <span
                   onClick={() => router.push(`/posts/${post._id}`)}
-                  className="text-blue-500 cursor-pointer"
+                  className="text-blue-500 cursor-pointer font-medium"
                 >
-                  see more...
+                  see more
                 </span>
               </p>
             </div>
 
-            <div className="mx-5 h-px bg-slate-200" />
+            {/* Divider */}
+            <div className="mx-3 h-px bg-slate-100" />
 
             {/* Actions */}
-            <div className="px-4 py-2 flex items-center justify-between">
+            <div className="flex items-center justify-between px-3 py-1.5">
               <button
                 onClick={() => toggleLike(post._id)}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-rose-50"
+                className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg hover:bg-rose-50"
               >
-                <Heart className="w-[18px] h-[18px] text-rose-500" />
-                <span className="text-sm font-medium text-slate-600">
+                <Heart className="w-4 h-4 text-rose-500" />
+                <span className="text-xs font-medium text-slate-600">
                   {post.likes.length}
                 </span>
               </button>
 
-              <button className="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-blue-50">
-                <MessageCircle className="w-[18px] h-[18px] text-slate-400" />
-                <span className="text-sm font-medium text-slate-500">
+              <button className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg hover:bg-blue-50">
+                <MessageCircle className="w-4 h-4 text-slate-400" />
+                <span className="text-xs font-medium text-slate-500">
                   Comment
                 </span>
               </button>
 
               <div className="flex items-center gap-2">
-                <Bookmark className="w-5 h-5 text-slate-400" />
-                <Share2 className="w-5 h-5 text-slate-400" />
+                <Bookmark className="w-4 h-4 text-slate-400" />
+                <Share2 className="w-4 h-4 text-slate-400" />
               </div>
             </div>
           </article>
         ))}
-
-        {/* LOAD MORE */}
-        {/* {posts.length > 6 && (
-          <div className="flex justify-center pt-8">
-            <button
-              onClick={() => router.push("/feed")}
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-medium hover:from-violet-700 hover:to-indigo-700 transition-all duration-200 shadow-lg shadow-violet-500/25"
-            >
-              Load more
-            </button>
-          </div>
-        )} */}
       </main>
     </div>
   );

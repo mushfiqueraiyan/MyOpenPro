@@ -1,12 +1,12 @@
+"use client";
+
 import {
   BoltIcon,
-  Globe,
   MessageSquare,
   Send,
   Trophy,
   User,
   Users,
-  Zap,
 } from "lucide-react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
@@ -21,142 +21,124 @@ type Post = {
 const ForumQuestion = () => {
   const [answer, setAnswer] = useState("");
   const [posts, setPosts] = useState<Post[]>([]);
-  const [question, setQuestion] = useState(
-    "What's the one thing you wish existed that doesn't yet?"
-  );
-
-  const cont = {
-    question,
-    answer,
-  };
+  const question = "What's the one thing you wish existed that doesn't yet?";
 
   const submitAnswer = async () => {
+    if (!answer.trim()) {
+      toast.error("Answer can’t be empty");
+      return;
+    }
+
     const res = await fetch("/api/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ content: cont }),
+      body: JSON.stringify({ content: { question, answer } }),
     });
 
     if (!res.ok) {
-      const errorText = await res.text();
-      console.error("API ERROR:", errorText);
-      toast.error("Something went wrong!");
+      toast.error("Something went wrong");
       return;
     }
 
     const newPost: Post = await res.json();
     setPosts((prev) => [newPost, ...prev]);
-    toast.success("Post added successfully!");
+    toast.success("Answer submitted");
     setAnswer("");
   };
 
   return (
-    <div className="bg-[#FBFBFB] py-5 px-5">
-      <div className="flex items-center gap-4 pb-5">
-        <div className="flex items-center gap-2 bg-[#CDE5F0] rounded-full px-4 py-1">
-          <MessageSquare className="w-4 h-4 text-blue-400" />
-          <span className="text-sm  text-blue-400">Forum Question</span>
+    <section className="bg-gradient-to-br from-slate-50 to-slate-100 px-6 py-8 ">
+      {/* Top Meta */}
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-3">
+          <span className="flex items-center gap-2 rounded-full bg-sky-100 px-4 py-1.5 text-sm font-medium text-sky-600">
+            <MessageSquare size={16} />
+            Forum Question
+          </span>
+
+          <span className="flex items-center gap-1 text-sm text-gray-500">
+            <Users size={16} /> 2.4k answers
+          </span>
         </div>
 
-        <div className="flex items-center gap-1 text-sm text-gray-400">
-          <Users size={16} /> 2.4k answers
-        </div>
+        <span className=" hidden md:flex items-center gap-1 text-sm font-semibold text-emerald-600">
+          <BoltIcon size={16} />
+          First 100 judged
+        </span>
       </div>
 
-      {/* Text */}
-
-      <div className="flex gap-3 items-center">
-        <div className="bg-[#CAE3DF] p-3 rounded-2xl">
-          <Trophy color="#158978" />
+      {/* Prize */}
+      <div className="flex items-center gap-4 mb-6">
+        <div className="rounded-2xl bg-emerald-100 p-3">
+          <Trophy className="text-emerald-600" />
         </div>
-        <h1 className="text-3xl font-bold text-left text-gray-800">
-          Best post wins{" "}
-          <span className="bg-linear-to-r from-[#158B81] via-[#178EA5] to-[#178EB6] bg-clip-text text-transparent font-semibold">
+        <h1 className="text-3xl font-bold text-gray-900">
+          Best answer wins{" "}
+          <span className="bg-gradient-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">
             iPhone 17 Pro Max
           </span>
         </h1>
       </div>
 
-      {/* <div className="flex items-center gap-3 text-left my-4 text-gray-500">
-        <Globe className="w-5 h-5 text-blue-500" />
-        <p className="text-sm lg:text-base">
-          Your voice seen by
-          <span className="text-foreground font-semibold text-gray-700">
-            {" "}
-            150K+ users
-          </span>{" "}
-          & millions of visitors
-        </p>
-      </div> */}
-
-      {/* Text area */}
-
-      <div className="bg-card border border-gray-400 rounded-xl p-5 mt-6 space-y-4">
-        <p className="text-2xl font-medium text-gray-700 text-foreground text-left">
+      {/* Main Card */}
+      <div className="rounded-2xl border border-gray-200 bg-white shadow-lg shadow-black/5 p-6 space-y-5">
+        {/* Question */}
+        <p className="text-xl font-semibold text-gray-800 leading-snug">
           {question}
         </p>
 
-        <div className="flex items-center gap-2 w-full">
-          <button className="hidden md:flex transition cursor-pointer hover:scale-[1.02] hover:shadow-xl font-bold bg-linear-to-r from-[#12888A] via-[#1180C2] to-[#2472F2] flex items-center text-white p-3 rounded-full text-center justify-center gap-3">
-            <User />
+        {/* Input */}
+        <div className="flex items-center flex-col md:flex-row gap-3">
+          <button className="hidden md:flex p-4 items-center justify-center rounded-full bg-gradient-to-br from-sky-500 to-emerald-500 text-white shadow-md hover:scale-105 transition">
+            <User size={20} />
           </button>
+
           <div className="relative w-full">
             <textarea
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
-              placeholder="Type your answer here..."
-              className="w-full h-20 bg-muted/50 border border-gray-400 rounded-lg p-4 text-foreground placeholder:text-muted-foreground resize-none focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+              maxLength={500}
+              placeholder="Share your idea…"
+              className="w-full h-28 resize-none rounded-xl border border-gray-300 bg-gray-50 p-4 pr-12 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
             />
-            <div className="absolute bottom-3 right-3 text-xs text-muted-foreground">
-              0/500
-            </div>
+            <span className="absolute bottom-3 right-4 text-xs text-gray-400">
+              {answer.length}/500
+            </span>
           </div>
+
           <button
             onClick={submitAnswer}
-            className=" transition cursor-pointer hover:scale-[1.02] hover:shadow-xl font-bold bg-linear-to-r from-[#12888A] via-[#1180C2] to-[#2472F2] flex items-center text-white p-3 rounded-xl text-center justify-center gap-3"
+            className="h-11 px-5 rounded-xl w-full justify-center md:w-fit bg-gradient-to-r from-sky-500 to-emerald-500 text-white font-semibold shadow-md hover:scale-[1.03] transition flex items-center gap-2"
           >
-            <Send />
+            <Send size={16} />
+            Post
           </button>
         </div>
       </div>
 
-      <div className="flex my-4 items-center justify-between rounded-xl bg-white px-4 py-3 shadow-sm border border-gray-300 rounded-2xl">
-        {/* Left: Avatars + Count */}
+      {/* Participation */}
+      <div className="mt-6 flex items-center justify-between rounded-2xl border border-gray-200 bg-white px-5 py-4 shadow-sm">
         <div className="flex items-center gap-3">
-          {/* Avatars */}
           <div className="flex -space-x-2">
             {[...Array(5)].map((_, i) => (
               <div
                 key={i}
-                className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-emerald-100"
+                className="h-8 w-8 flex items-center justify-center text-[#201f1f] rounded-full border-2 border-white bg-gradient-to-br from-emerald-200 to-sky-200"
               >
-                <svg
-                  className="h-4 w-4 text-emerald-600"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5z" />
-                </svg>
+                {" "}
+                <User size={15} />{" "}
               </div>
             ))}
           </div>
 
-          {/* Text */}
           <span className="text-sm text-gray-600">
-            <span className="font-semibold text-gray-900">+2,394</span>{" "}
-            participating
+            <strong className="text-gray-900">+2,394</strong> participating
           </span>
         </div>
 
-        {/* Right: Badge */}
-        <div className="flex items-center gap-1 text-sm font-semibold text-sky-500">
-          <BoltIcon className="h-4 w-4" />
-          First 100 judged
-        </div>
+        <p className="text-sm text-gray-500">⚡ Winner announced Friday</p>
       </div>
-
-      <p className="text-gray-600 text-sm">⚡ Winner announced Friday</p>
-    </div>
+    </section>
   );
 };
 

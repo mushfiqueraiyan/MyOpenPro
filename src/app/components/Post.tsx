@@ -124,7 +124,7 @@ const PostFeed = () => {
 
         {/* MIDDLE COLUMN (WIDE) */}
         <div>
-          <div className="h-105 md:h-110 bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-400">
+          <div className="h-133 md:h-130 bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-400">
             <div className="bg-gradient-to-r from-[#D3EBF5] to-[#CEE6E6] px-4 py-2 ">
               <p className="text-xs text-center uppercase tracking-wider text-foreground">
                 💬 Weekly Question
@@ -137,59 +137,59 @@ const PostFeed = () => {
 
         {/* RIGHT COLUMN - Instant Win Teaser Card */}
         <div className="lg:self-start">
-          <div className="bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-400">
-            <div className="bg-gradient-to-r from-[#CFE5E1] to-[#E8F2F0] px-4 py-2">
-              <p className="text-xs font-medium text-center uppercase tracking-wider text-foreground">
+          <div className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl shadow-black/5">
+            {/* Header */}
+            <div className="bg-gradient-to-r from-emerald-100 to-teal-100 px-5 py-3">
+              <p className="text-center text-xs font-semibold uppercase tracking-widest text-emerald-700">
                 🎰 Instant Win Game
               </p>
             </div>
 
-            {/* Teaser content (integrated directly - opens full-screen modal) */}
-            <div className="p-6 text-center">
-              {/* Top Badge */}
+            <div className="relative p-6 text-center">
+              {/* Glow */}
+              <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-emerald-200/30 via-transparent to-sky-200/30 blur-3xl" />
+
+              {/* Badge */}
               <div className="mb-4 flex items-center justify-center gap-2">
-                <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-1 text-sm font-medium text-emerald-700">
+                <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-1.5 text-sm font-semibold text-emerald-700">
                   <GiftIcon className="h-4 w-4" />
                   Spin & Win
                 </span>
-                <SparklesIcon className="h-4 w-4 text-emerald-500" />
               </div>
 
-              {/* Title */}
-              <h1 className="text-3xl font-extrabold text-gray-800">
-                WIN{" "}
+              {/* Headline */}
+              <h2 className="text-3xl font-extrabold text-gray-900">
+                Win{" "}
                 <span className="bg-gradient-to-r from-emerald-400 to-teal-600 bg-clip-text text-transparent">
                   AirPods Pro 4
                 </span>
-              </h1>
+              </h2>
               <p className="mt-1 text-sm text-gray-500">or Apple Watch Ultra</p>
 
-              {/* Teaser Slot Display */}
-              <div className="relative my-6 flex items-center justify-center">
-                <div className="absolute h-32 w-32 rounded-full bg-emerald-200/40 blur-3xl" />
-                <div className="relative flex items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-lg">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-50 text-2xl shadow-inner">
-                    🎧
-                  </div>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-50 text-2xl shadow-inner">
-                    ⌚
-                  </div>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-50 text-2xl shadow-inner">
-                    🎁
-                  </div>
+              {/* Slot Teaser */}
+              <div className="relative my-7 flex justify-center">
+                <div className="absolute h-36 w-36 rounded-full bg-emerald-300/30 blur-3xl" />
+                <div className="relative flex items-center gap-3 rounded-2xl bg-white px-6 py-4 shadow-lg">
+                  {["🎧", "⌚", "🎁"].map((icon, i) => (
+                    <div
+                      key={i}
+                      className="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-50 text-2xl shadow-inner"
+                    >
+                      {icon}
+                    </div>
+                  ))}
                   <div className="absolute -right-3 top-1/2 h-10 w-3 -translate-y-1/2 rounded-full bg-gradient-to-b from-teal-400 to-teal-700 shadow-md" />
                 </div>
               </div>
 
-              {/* Info Badge */}
-              <div className="mx-auto mb-5 flex items-center gap-2 rounded-full border border-blue-300 bg-blue-50 px-4 py-2 text-xs font-medium text-blue-600">
-                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-blue-600 text-xs text-white">
-                  <CircleCheck className="h-3 w-3" />
-                </span>
-                First 100 spins = 90% chance to win!
+              {/* Odds */}
+              <div className="mx-auto mb-6 flex w-fit items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-semibold text-sky-600">
+                <CircleCheck className="h-4 w-4 text-sky-500" />
+                First 100 spins have higher win rates
               </div>
 
-              <div className="">
+              {/* Wheel */}
+              <div className="mb-6">
                 <Wheel
                   segments={segments}
                   badPrizes={badPrizes}
@@ -198,58 +198,57 @@ const PostFeed = () => {
                   lastPrize={lastPrize}
                   bigWins={bigWins}
                 />
+
                 {lastPrize && (
-                  <div className="mt-3 text-center">
-                    <p className="text-xl text-black md:text-5xl">You won:</p>
+                  <div className="mt-6">
+                    <p className="text-sm text-gray-500">You won</p>
                     <h3
-                      className={`mt-6 text-4xl font-extrabold drop-shadow-2xl md:text-5xl ${
+                      className={`mt-2 text-4xl font-extrabold ${
                         bigWins.includes(lastPrize)
-                          ? "animate-pulse text-yellow-300"
-                          : "text-black"
+                          ? "animate-pulse text-yellow-400"
+                          : "text-gray-900"
                       }`}
                     >
-                      {lastPrize}
-                      {bigWins.includes(lastPrize) ? " 🎉" : ""}
+                      {lastPrize} {bigWins.includes(lastPrize) && "🎉"}
                     </h3>
-                    <p className="my-5 text-xl font-bold text-black md:text-xl">
+                    <p className="mt-2 text-sm font-semibold text-emerald-600">
                       Congratulations!
                     </p>
                   </div>
                 )}
               </div>
 
-              {/* CTA Button - opens full-screen modal */}
+              {/* CTA */}
               <button
                 onClick={() => setOpenSpin(true)}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#12888A] via-[#1180C2] to-[#2472F2] px-5 py-4 text-sm font-extrabold text-white shadow-lg transition hover:scale-[1.02] hover:shadow-xl"
+                className="group relative flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 via-sky-500 to-blue-500 px-6 py-4 text-sm font-extrabold text-white shadow-lg transition hover:scale-[1.03] hover:shadow-2xl"
               >
-                <BoltIcon className="h-5 w-5" />
+                <BoltIcon className="h-5 w-5 animate-pulse" />
                 SPIN TO WIN
               </button>
 
-              {/* Footer */}
+              {/* Trust */}
               <p className="mt-3 text-xs text-gray-400">
-                No purchase necessary • Instant results
+                No purchase required • Instant result
               </p>
 
-              {/* Recent Winners (dynamic) */}
+              {/* Recent Winners */}
               <div className="mt-6 text-left">
-                <p className="mb-2 text-xs font-semibold text-gray-500">
-                  Recent Winners:
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                  Recent Winners
                 </p>
                 <ul className="space-y-1 text-sm text-gray-600">
                   {prizes.length > 0 ? (
-                    prizes.map((prize, index) => (
-                      <li key={index}>
-                        🏆 A player won {prize} ·{" "}
-                        {index === 0 ? "just now" : `${(index + 1) * 2}m ago`}
-                      </li>
-                    ))
+                    prizes
+                      .slice(0, 3)
+                      .map((prize, i) => (
+                        <li key={i}>🏆 Someone won {prize} · just now</li>
+                      ))
                   ) : (
                     <>
                       <li>🏆 Mike R. won AirPods Pro · 2m ago</li>
-                      <li>🏆 Lisa T. won Apple Watch · 3m ago</li>
-                      <li>🏆 John D. won $500 · 5m ago</li>
+                      <li>🏆 Lisa T. won Apple Watch · 4m ago</li>
+                      <li>🏆 John D. won $500 · 6m ago</li>
                     </>
                   )}
                 </ul>

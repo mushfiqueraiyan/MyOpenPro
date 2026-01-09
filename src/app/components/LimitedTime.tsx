@@ -1,98 +1,83 @@
 "use client";
+
 import { Clock, Users, Zap } from "lucide-react";
 import React, { useState } from "react";
 import CoutDown from "@/app/components/CoutDown";
 
 const LimitedTime = () => {
-  const [liveUsers, setLiveUsers] = useState(847);
-  const [spots, setSpots] = useState(22);
+  const [liveUsers] = useState(847);
+  const [spots] = useState(22);
+
+  const progress = ((100 - spots) / 100) * 100;
 
   return (
-    <div>
-      {" "}
-      <div className="h-full bg-[#F9FAFA] w-full  space-y-6 p-6">
-        {/* Live indicator */}
-        <div className="flex items-center gap-2 text-neon-green">
-          <span className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full  "></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+    <section className="w-full rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-6 space-y-6 shadow-lg shadow-black/5">
+      {/* Live Indicator */}
+      <div className="flex items-center gap-3">
+        <span className="relative flex h-3 w-3">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+          <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500" />
+        </span>
+        <span className="text-xs font-semibold uppercase tracking-widest text-emerald-600">
+          Live Now
+        </span>
+      </div>
+
+      {/* Countdown Card */}
+      <div className="rounded-2xl bg-white border border-gray-200 p-5 shadow-md space-y-4">
+        <div className="flex items-center gap-2 text-gray-500">
+          <Clock size={16} />
+          <span className="text-xs font-medium uppercase tracking-wider">
+            Giveaway Ends In
           </span>
-          <span className="text-sm  uppercase text-blue-500 tracking-wider">
-            Live Now
-          </span>
         </div>
 
-        {/* Timer */}
-        <div className="space-y-2 border border-gray-400 p-3 rounded-2xl">
-          <div className="flex items-center gap-2 text-muted-foreground mb-5">
-            <Clock className="w-4 h-4" color="#ADB2BB" />
-            <span className="text-xs uppercase tracking-wider text-gray-500">
-              Giveaway Ends In
-            </span>
+        <CoutDown />
+      </div>
+
+      {/* Stats */}
+      <div className="grid grid-cols-2 gap-4">
+        <div className="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
+          <div className="flex items-center gap-2 text-gray-500 mb-1">
+            <Users size={16} />
+            <span className="text-xs">Live visitors</span>
           </div>
-
-          {/* <div className="flex items-center gap-3">
-            <div className="bg-white p-5 rounded-xl font-bold text-2xl  shadow-emerald-100 shadow-xl  text-[#15897E]">
-              23
-            </div>
-            <div className="bg-white p-5 rounded-xl font-bold text-2xl  shadow-emerald-100 shadow-xl  text-[#15897E]">
-              12
-            </div>
-            <div className="bg-white p-5 rounded-xl font-bold text-2xl  shadow-emerald-100 shadow-xl  text-[#15897E]">
-              36
-            </div>
-          </div> */}
-
-          <CoutDown />
-        </div>
-
-        {/* Stats */}
-        <div className="space-y-3 text-gray-600 pt-4 border border-gray-400 p-3 rounded-2xl">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Users className="w-4 h-4" />
-              <span className="text-xs">Live visitors</span>
-            </div>
-            <span className="text-foreground text-gray-700 font-semibold">
-              {liveUsers.toLocaleString()}
-            </span>
-          </div>
-
-          <div className="flex items-center text-blue-400 justify-between">
-            <div className="flex items-center gap-2 text-hot-orange">
-              <Zap className="w-4 h-4" />
-              <span className="text-xs">Spots left</span>
-            </div>
-            <span className="text-hot-orange font-bold animate-pulse">
-              {spots}
-            </span>
-          </div>
-        </div>
-
-        {/* Urgency bar */}
-        <div className="space-y-2">
-          <div className="h-2 bg-muted rounded-full overflow-hidden border border-gray-200">
-            <div
-              className="h-full bg-linear-to-r from-[#15897E] to-[#2770F8] rounded-full transition-all duration-1000"
-              style={{ width: `${(spots / 100) * 100}%` }}
-            />
-          </div>
-          <p className="text-xs text-muted-foreground text-center my-5 text-gray-600">
-            <span className="text-[#15897E] font-bold">{100 - spots} </span>
-            people entered in last hour
+          <p className="text-xl font-bold text-gray-900">
+            {liveUsers.toLocaleString()}
           </p>
         </div>
 
-        {/* Social proof ticker */}
-        <div className="bg-card/50 border text-gray-600 border-gray-300 rounded-lg p-3 overflow-hidden">
-          <div className="animate-bounce-subtle">
-            <p className="text-xs text-muted-foreground">
-              <span className="text-neon-green">✓</span> Sarah K. just entered
-            </p>
+        <div className="rounded-2xl bg-gradient-to-br from-emerald-500 to-sky-500 p-4 text-white shadow-md">
+          <div className="flex items-center gap-2 opacity-90 mb-1">
+            <Zap size={16} />
+            <span className="text-xs">Spots left</span>
           </div>
+          <p className="text-xl font-extrabold animate-pulse">{spots}</p>
         </div>
       </div>
-    </div>
+
+      {/* Urgency Progress */}
+      <div className="space-y-2">
+        <div className="h-2 w-full rounded-full bg-gray-200 overflow-hidden">
+          <div
+            className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-sky-500 transition-all duration-700"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        <p className="text-xs text-center text-gray-500">
+          <span className="font-semibold text-emerald-600">{100 - spots}</span>{" "}
+          people entered in the last hour
+        </p>
+      </div>
+
+      {/* Social Proof */}
+      <div className="rounded-xl bg-white border border-gray-200 p-3 shadow-sm">
+        <p className="text-xs text-gray-600 animate-pulse">
+          <span className="text-emerald-500 font-semibold">✓</span> Sarah K.
+          just entered the giveaway
+        </p>
+      </div>
+    </section>
   );
 };
 
