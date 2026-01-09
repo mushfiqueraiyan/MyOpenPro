@@ -1,12 +1,12 @@
 "use client";
 
 import { BoltIcon, CircleCheck, GiftIcon, SparklesIcon } from "lucide-react";
-import ForumQuestion from "@/components/ForumQuestion";
-import LimitedTime from "@/components/LimitedTime";
-import Popup from "@/components/Popup";
-import SeekerProCard from "@/components/SeekerProCard";
+import ForumQuestion from "@/app/components/ForumQuestion";
+import LimitedTime from "@/app/components/LimitedTime";
+import Popup from "@/app/components/Popup";
+import SeekerProCard from "@/app/components/SeekerProCard";
 import React, { useEffect, useState } from "react";
-import Feed from "@/components/Feed";
+import Feed from "@/app/components/Feed";
 import Wheel from "./Wheel"; // Adjust path if needed
 import Image from "next/image";
 import air from "@/assests/air.webp";
@@ -76,7 +76,7 @@ const PostFeed = () => {
   };
 
   return (
-    <div className="py-10 mb-32">
+    <div className="py-10 mb-20">
       {/* Top Prize Banner */}
 
       {/* Main Grid */}
@@ -93,7 +93,7 @@ const PostFeed = () => {
       >
         {/* LEFT COLUMN */}
         <div className="lg:self-start">
-          <div className="bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800 hidden md:block">
+          <div className="bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-400 hidden md:block">
             <div className="bg-gradient-to-r from-[#D3EBF5] to-[#CEE6E6] px-4 py-2">
               <p className="text-sm text-center uppercase tracking-wider text-foreground">
                 ⚡ Limited Time Offer
@@ -124,20 +124,20 @@ const PostFeed = () => {
 
         {/* MIDDLE COLUMN (WIDE) */}
         <div>
-          <div className="h-245 bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800">
+          <div className="h-105 md:h-110 bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-400">
             <div className="bg-gradient-to-r from-[#D3EBF5] to-[#CEE6E6] px-4 py-2 ">
               <p className="text-xs text-center uppercase tracking-wider text-foreground">
                 💬 Weekly Question
               </p>
             </div>
             <ForumQuestion />
-            <Feed />
           </div>
+          <Feed />
         </div>
 
         {/* RIGHT COLUMN - Instant Win Teaser Card */}
         <div className="lg:self-start">
-          <div className="bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800">
+          <div className="bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-400">
             <div className="bg-gradient-to-r from-[#CFE5E1] to-[#E8F2F0] px-4 py-2">
               <p className="text-xs font-medium text-center uppercase tracking-wider text-foreground">
                 🎰 Instant Win Game
@@ -156,7 +156,7 @@ const PostFeed = () => {
               </div>
 
               {/* Title */}
-              <h1 className="text-2xl font-extrabold text-gray-800">
+              <h1 className="text-3xl font-extrabold text-gray-800">
                 WIN{" "}
                 <span className="bg-gradient-to-r from-emerald-400 to-teal-600 bg-clip-text text-transparent">
                   AirPods Pro 4
@@ -189,7 +189,7 @@ const PostFeed = () => {
                 First 100 spins = 90% chance to win!
               </div>
 
-              <div>
+              <div className="">
                 <Wheel
                   segments={segments}
                   badPrizes={badPrizes}
@@ -260,13 +260,8 @@ const PostFeed = () => {
       </div>
 
       {/* Bottom Card */}
-      <div className="mt-16 max-w-350 mx-auto px-4 flex items-center pl-0 md:pl-20">
-        <div>
-          <SeekerProCard />
-        </div>
-        <div className="hidden md:block">
-          <SeekerProCard />
-        </div>
+      <div className="mt-16 max-w-550 mx-auto px-4   ">
+        <SeekerProCard />
       </div>
 
       {/* Full-screen spin modal */}
@@ -299,7 +294,7 @@ const PostFeed = () => {
             <div className="mt-12 text-center">
               <p className="text-3xl text-white/90 md:text-5xl">You won:</p>
               <h3
-                className={`mt-6 text-4xl font-extrabold drop-shadow-2xl md:text-8xl ${
+                className={`mt-3 text-4xl font-extrabold drop-shadow-2xl md:text-8xl ${
                   bigWins.includes(lastPrize)
                     ? "animate-pulse text-yellow-300"
                     : "text-white"
@@ -308,7 +303,7 @@ const PostFeed = () => {
                 {lastPrize}
                 {bigWins.includes(lastPrize) ? " 🎉" : ""}
               </h3>
-              <p className="mt-8 text-4xl font-bold text-white md:text-6xl">
+              <p className="mt-2 text-4xl font-bold text-white md:text-6xl">
                 Congratulations!
               </p>
             </div>

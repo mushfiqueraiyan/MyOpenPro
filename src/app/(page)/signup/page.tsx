@@ -1,7 +1,7 @@
 "use client";
 
 import { Apple } from "lucide-react";
-import circle from "../../assests/signupImage.png";
+import circle from "@/assests/signupImage.png";
 import Image from "next/image";
 
 export default function SignupSection() {

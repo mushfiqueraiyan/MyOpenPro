@@ -12,8 +12,8 @@ import {
 
 export default function SeekerProCard() {
   return (
-    <section className="w-full flex justify-center px-4 py-16 bg-white">
-      <div className="w-full max-w-3xl rounded-3xl bg-[#F7FBFA] shadow-sm border border-gray-100 p-8 text-center">
+    <section className="w-full flex justify-center px-4  bg-white">
+      <div className="w-full max-w-5xl rounded-3xl bg-[#F7FBFA] shadow-sm border border-gray-100 p-8 text-center">
         {/* Badge */}
         <div className="flex justify-center mb-4">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 text-emerald-600 text-sm font-medium">

@@ -46,33 +46,35 @@ const Page = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-slate-50 via-white to-slate-100/50 h-122 overflow-y-auto">
+    <div className="mt-5  border-t border-l border-b border-[#9bffe6] bg-[#eafffa] h-122 overflow-y-auto rounded-4xl mx-2">
       <main className="max-w-5xl mx-auto px-4 py-6 space-y-4">
         {posts.map((post) => (
           <article
             key={post._id}
-            className="group border border-gray-800 bg-white rounded-2xl  hover:border-violet-200 shadow-sm hover:shadow-xl hover:shadow-violet-100/50 transition-all duration-300"
+            className="group border border-gray-200 bg-white rounded-2xl  hover:border-violet-200 shadow-sm hover:shadow-xl hover:shadow-violet-100/50 transition-all duration-300"
           >
             {/* Header */}
-            <div className="p-5 pb-3 flex items-start justify-between">
+            <div className="  flex items-start justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-violet-500 to-indigo-500 p-0.5">
-                  <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-                    <User className="w-5 h-5 text-slate-500" />
+                <div className="px-3 pt-3 pb-2 flex items-center gap-3 w-full">
+                  <div className="w-11 h-11 rounded-full bg-[#23705d] p-0.5">
+                    <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
+                      <User className="w-5 h-5 text-slate-500" />
+                    </div>
                   </div>
-                </div>
 
-                <div>
-                  <p className="font-semibold text-slate-800">Anonymous</p>
-                  <span className="text-sm text-slate-400">
-                    {new Date(post.createdAt || "").toLocaleDateString(
-                      "en-US",
-                      {
-                        month: "short",
-                        day: "numeric",
-                      }
-                    )}
-                  </span>
+                  <div className="">
+                    <p className="font-semibold text-slate-800">Anonymous</p>
+                    <span className="text-sm text-slate-400">
+                      {new Date(post.createdAt || "").toLocaleDateString(
+                        "en-US",
+                        {
+                          month: "short",
+                          day: "numeric",
+                        }
+                      )}
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -82,7 +84,7 @@ const Page = () => {
             </div>
 
             {/* Content */}
-            <div className="px-5 pb-4">
+            <div className="px-5 pb-2">
               <h2 className="text-lg font-semibold text-slate-900 mb-2">
                 {post.question}
               </h2>
@@ -100,7 +102,7 @@ const Page = () => {
             <div className="mx-5 h-px bg-slate-200" />
 
             {/* Actions */}
-            <div className="px-4 py-3 flex items-center justify-between">
+            <div className="px-4 py-2 flex items-center justify-between">
               <button
                 onClick={() => toggleLike(post._id)}
                 className="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-rose-50"

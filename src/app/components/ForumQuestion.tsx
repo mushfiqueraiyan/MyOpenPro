@@ -2,6 +2,7 @@ import {
   BoltIcon,
   Globe,
   MessageSquare,
+  Send,
   Trophy,
   User,
   Users,
@@ -90,7 +91,7 @@ const ForumQuestion = () => {
 
       {/* Text area */}
 
-      <div className="bg-card border border-gray-600 rounded-xl p-5 mt-6 space-y-4">
+      <div className="bg-card border border-gray-400 rounded-xl p-5 mt-6 space-y-4">
         <p className="text-2xl font-medium text-gray-700 text-foreground text-left">
           {question}
         </p>
@@ -114,7 +115,7 @@ const ForumQuestion = () => {
             onClick={submitAnswer}
             className=" transition cursor-pointer hover:scale-[1.02] hover:shadow-xl font-bold bg-linear-to-r from-[#12888A] via-[#1180C2] to-[#2472F2] flex items-center text-white p-3 rounded-xl text-center justify-center gap-3"
           >
-            Answer
+            <Send />
           </button>
         </div>
       </div>

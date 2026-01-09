@@ -1,13 +1,13 @@
-import Alternative from "@/components/Alternative";
-import CareSection from "@/components/CareSection";
-import ElitePros from "@/components/ElitePros";
-import FeaturedSection from "@/components/FeaturedSection";
-import FitnessSection from "@/components/FitnessSection";
-import Hero from "@/components/Hero";
-import NewBlossend from "@/components/NewBlossend";
-import Speciality from "@/components/Speciality";
-import Map from "@/components/Map";
-import PostFeed from "@/components/Post";
+import Alternative from "@/app/components/Alternative";
+import CareSection from "@/app/components/CareSection";
+import ElitePros from "@/app/components/ElitePros";
+import FeaturedSection from "@/app/components/FeaturedSection";
+import FitnessSection from "@/app/components/FitnessSection";
+import Hero from "@/app/components/Hero";
+import NewBlossend from "@/app/components/NewBlossend";
+import Speciality from "@/app/components/Speciality";
+import Map from "@/app/components/Map";
+import PostFeed from "@/app/components/Post";
 
 export default function Home() {
   return (

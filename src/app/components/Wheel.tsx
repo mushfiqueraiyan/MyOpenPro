@@ -21,14 +21,17 @@ const Wheel: React.FC<WheelProps> = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isSpinning, setIsSpinning] = useState(false);
   const [rotation, setRotation] = useState(0);
-  const [canvasSize, setCanvasSize] = useState(360);
 
-  // Responsive size
+  // 🔥 MAIN SIZE CONTROL (SMALLER)
+  const [canvasSize, setCanvasSize] = useState(220); // ⬅️ DEFAULT SIZE
+
+  // 🔥 RESPONSIVE SIZE CONTROL (SMALLER RANGE)
   useEffect(() => {
     const updateSize = () => {
-      const size = Math.min(window.innerWidth * 0.9, 380);
-      setCanvasSize(Math.max(size, 300));
+      const size = Math.min(window.innerWidth * 0.75, 260); // ⬅️ MAX SIZE
+      setCanvasSize(Math.max(size, 180)); // ⬅️ MIN SIZE
     };
+
     updateSize();
     window.addEventListener("resize", updateSize);
     return () => window.removeEventListener("resize", updateSize);
@@ -99,7 +102,6 @@ const Wheel: React.FC<WheelProps> = ({
     canvas.style.width = `${canvasSize}px`;
     canvas.style.height = `${canvasSize}px`;
 
-    // 🔥 CRITICAL FIX
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
 
@@ -127,7 +129,7 @@ const Wheel: React.FC<WheelProps> = ({
       ctx.save();
       ctx.rotate(i * arc + arc / 2);
       ctx.fillStyle = "#fff";
-      ctx.font = `bold ${canvasSize / 18}px system-ui`;
+      ctx.font = `bold ${canvasSize / 22}px system-ui`; // ⬅️ slightly smaller text
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillText(label, radius * 0.7, 0);
@@ -136,11 +138,11 @@ const Wheel: React.FC<WheelProps> = ({
 
     ctx.restore();
 
-    // Pointer
+    // Pointer (scaled down)
     ctx.beginPath();
-    ctx.moveTo(center - 15, 10);
-    ctx.lineTo(center + 15, 10);
-    ctx.lineTo(center, 45);
+    ctx.moveTo(center - 10, 6);
+    ctx.lineTo(center + 10, 6);
+    ctx.lineTo(center, 28);
     ctx.fillStyle = "#fff";
     ctx.fill();
   };
@@ -156,7 +158,7 @@ const Wheel: React.FC<WheelProps> = ({
       <button
         onClick={spin}
         disabled={isSpinning}
-        className="absolute top-1/2 left-1/2 z-10 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-sm font-bold uppercase text-white shadow-xl disabled:opacity-60"
+        className="absolute top-1/2 left-1/2 z-10 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-[10px] font-bold uppercase text-white shadow-xl disabled:opacity-60"
       >
         {isSpinning ? "Spinning…" : lastPrize ? "Spin Again" : "Spin Now"}
       </button>
