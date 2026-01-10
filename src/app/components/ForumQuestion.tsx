@@ -56,7 +56,7 @@ const ForumQuestion = () => {
             Forum Question
           </span>
 
-          <span className="flex items-center gap-1 text-sm text-gray-500">
+          <span className="hidden md:flex items-center gap-1 text-sm text-gray-500">
             <Users size={16} /> 2.4k answers
           </span>
         </div>
@@ -126,7 +126,6 @@ const ForumQuestion = () => {
                 className="h-8 w-8 flex items-center justify-center text-[#201f1f] rounded-full border-2 border-white bg-gradient-to-br from-emerald-200 to-sky-200"
               >
                 {" "}
-                <User size={15} />{" "}
               </div>
             ))}
           </div>
@@ -136,7 +135,9 @@ const ForumQuestion = () => {
           </span>
         </div>
 
-        <p className="text-sm text-gray-500">⚡ Winner announced Friday</p>
+        <p className="text-sm hidden md:flex text-gray-500">
+          ⚡ Winner announced Friday
+        </p>
       </div>
     </section>
   );

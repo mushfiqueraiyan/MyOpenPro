@@ -14,7 +14,7 @@ const Popup = ({ isVisible, onClose, onRemindLater }: Popup) => {
 
   return (
     <div>
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm px-4">
         <div className="relative w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
           {/* Close */}
           <button

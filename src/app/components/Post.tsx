@@ -124,7 +124,7 @@ const PostFeed = () => {
 
         {/* MIDDLE COLUMN (WIDE) */}
         <div>
-          <div className="h-133 md:h-130 bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-400">
+          <div className="h-160 md:h-130  bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-400">
             <div className="bg-gradient-to-r from-[#D3EBF5] to-[#CEE6E6] px-4 py-2 ">
               <p className="text-xs text-center uppercase tracking-wider text-foreground">
                 💬 Weekly Question
@@ -259,7 +259,7 @@ const PostFeed = () => {
       </div>
 
       {/* Bottom Card */}
-      <div className="mt-16 max-w-550 mx-auto px-4   ">
+      <div className="mt-16 w-auto mx-auto px-1 md:px-4   ">
         <SeekerProCard />
       </div>
 
