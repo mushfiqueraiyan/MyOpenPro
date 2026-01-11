@@ -167,7 +167,7 @@ const PostFeed = () => {
               <p className="mt-1 text-sm text-gray-500">or Apple Watch Ultra</p>
 
               {/* Slot Teaser */}
-              <div className="relative my-7 flex justify-center">
+              {/* <div className="relative my-7 flex justify-center">
                 <div className="absolute h-36 w-36 rounded-full bg-emerald-300/30 blur-3xl" />
                 <div className="relative flex items-center gap-3 rounded-2xl bg-white px-6 py-4 shadow-lg">
                   {["🎧", "⌚", "🎁"].map((icon, i) => (
@@ -180,10 +180,10 @@ const PostFeed = () => {
                   ))}
                   <div className="absolute -right-3 top-1/2 h-10 w-3 -translate-y-1/2 rounded-full bg-gradient-to-b from-teal-400 to-teal-700 shadow-md" />
                 </div>
-              </div>
+              </div> */}
 
               {/* Odds */}
-              <div className="mx-auto mb-6 flex w-fit items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-semibold text-sky-600">
+              <div className="mx-auto my-6 mb-6 flex w-fit items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-semibold text-sky-600">
                 <CircleCheck className="h-4 w-4 text-sky-500" />
                 First 100 spins have higher win rates
               </div>

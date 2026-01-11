@@ -47,10 +47,17 @@ export default function Navbar() {
                   className="flex-1 bg-transparent outline-none text-sm"
                 />
 
-                <Search
-                  size={30}
-                  className=" text-gray-100 rounded-full p-2 bg-black"
-                />
+                <button
+                  className="
+            flex items-center justify-center
+            w-9 h-9 rounded-full
+            bg-emerald-500 hover:bg-emerald-600
+            text-white shadow-md
+            transition
+          "
+                >
+                  <Search size={16} />
+                </button>
               </div>
             </div>
 

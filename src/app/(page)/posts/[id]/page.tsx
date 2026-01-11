@@ -133,7 +133,7 @@ export default function IndividualPostPage() {
     <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-blue-50">
       {/* Header */}
       <header
-        onClick={() => router.push("/feed")}
+        onClick={() => router.push("/")}
         className="sticky cursor-pointer top-0 z-10 bg-white/80 backdrop-blur-md border-b border-slate-200/60"
       >
         <div className="max-w-4xl mx-auto px-4 py-4 flex items-center gap-4">
@@ -146,50 +146,60 @@ export default function IndividualPostPage() {
 
       <main className="max-w-4xl mx-auto px-4 py-6 space-y-6">
         {/* Post Card */}
-        <article className="bg-white rounded-2xl shadow-sm shadow-slate-200/50 border border-gray-700 overflow-hidden hover:shadow-md hover:shadow-slate-200/50 transition-all duration-300">
-          <div className="p-6 space-y-4">
-            <h2 className="text-2xl flex items-center gap-3 font-bold text-slate-900 leading-tight">
-              <div className="bg-emerald-600  p-2 rounded-full">
-                <User color="white" size={30} />
-              </div>{" "}
+        <article className="bg-white rounded-xl shadow-sm">
+          {/* Post Header */}
+          <div className="flex items-center gap-3 px-4 py-3">
+            <div className="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center">
+              <User className="text-white" />
+            </div>
+            <div>
+              <p className="font-semibold text-gray-900">Anonymous</p>
+              <p className="text-xs text-gray-500">
+                {post.createdAt && formatDate(post.createdAt)}
+              </p>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="px-4 pb-3">
+            <h2 className="text-lg font-semibold text-gray-900 leading-snug mb-2">
               {post.question}
             </h2>
-            <p className="text-slate-600 leading-relaxed text-base">
+            <p className="text-gray-700 text-sm leading-relaxed">
               {post.answer}
             </p>
+          </div>
 
-            <div className="flex items-center justify-between pt-4 border-t  border-gray-400">
-              <div className="flex items-center gap-2 text-slate-400">
-                <Clock className="w-4 h-4" />
-                <span className="text-sm">
-                  {post.createdAt ? formatDate(post.createdAt) : ""}
-                </span>
-              </div>
+          {/* Stats */}
+          <div className="px-4 py-2 text-sm text-gray-500 flex justify-between">
+            <span>{like} likes</span>
+            <span>{comments.length} comments</span>
+          </div>
 
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={toggleLike}
-                  className="flex items-center gap-1 px-3 py-1 rounded-lg hover:bg-red-300 transition-colors duration-200"
-                >
-                  <Heart className="w-4 h-4" />
-                  <span>{like}</span>
-                </button>
+          {/* Actions */}
+          <div className="border-t border-gray-200 flex justify-around p-4">
+            <button
+              onClick={toggleLike}
+              className="flex items-center gap-2 text-gray-600 hover:text-red-500 font-medium"
+            >
+              <Heart className="w-5 h-5" />
+              Like
+            </button>
 
-                <button className="flex items-center gap-2 px-3 py-1 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors duration-200">
-                  <MessageCircle className="w-4 h-4" />
-                  <span>{comments.length}</span>
-                </button>
+            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-600 font-medium">
+              <MessageCircle className="w-5 h-5" />
+              Comment
+            </button>
 
-                <button className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors duration-200">
-                  <Share2 className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
+            <button className="flex items-center gap-2 text-gray-600 hover:text-green-600 font-medium">
+              <Share2 className="w-5 h-5" />
+              Share
+            </button>
           </div>
         </article>
 
         {/* Comments Section */}
-        <section className="bg-white rounded-2xl shadow-sm shadow-slate-200/50 border border-gray-700 overflow-hidden">
+        <section className="bg-white rounded-2xl shadow-sm shadow-slate-200/50 border border-gray-300 overflow-hidden">
           {/* Comments Header */}
           <div className="px-6 py-4 border-b border-slate-100">
             <h3 className="text-lg font-semibold text-slate-800">

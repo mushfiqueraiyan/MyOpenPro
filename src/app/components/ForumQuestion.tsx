@@ -47,7 +47,7 @@ const ForumQuestion = () => {
   };
 
   return (
-    <section className="bg-gradient-to-br from-slate-50 to-slate-100 px-6 py-8 ">
+    <section className="bg-gradient-to-br from-slate-50 to-slate-100 px-6 py-8 overflow-y-auto">
       {/* Top Meta */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">

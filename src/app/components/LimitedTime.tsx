@@ -11,7 +11,7 @@ const LimitedTime = () => {
   const progress = ((100 - spots) / 100) * 100;
 
   return (
-    <section className="w-full rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-6 space-y-6 shadow-lg shadow-black/5">
+    <section className="w-full mt-5 rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-6 space-y-6 shadow-lg shadow-black/5">
       {/* Live Indicator */}
       <div className="flex items-center gap-3">
         <span className="relative flex h-3 w-3">
